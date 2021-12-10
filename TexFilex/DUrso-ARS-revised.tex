@@ -1,0 +1,3282 @@
+\documentclass[a4paper,man,natbib]{apa6}
+
+\usepackage{natbib}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{xr}
+%\usepackage{titlesec}
+\usepackage{footmisc}
+\usepackage{amssymb}
+\usepackage{lineno}
+\usepackage{float}
+\usepackage{longtable}
+%\usepackage[margin=1in]{geometry}
+%\usepackage[english,ngerman]{babel}
+%\usepackage[numbers]{natbib}
+%\usepackage{natbib}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{xparse}
+\usepackage{tikz}
+
+
+\externaldocument{Appendix-ARS-short}
+
+\justifying
+
+\title{Awareness is bliss: How acquiescence affects exploratory factor analysis}
+\shorttitle{How acquiescence affects exploratory factor analysis}
+\author{E. Damiano D'Urso, Jesper Tijmstra, Jeroen K. Vermunt, Kim De Roover}
+\affiliation{Tilbug University, The Netherlands}
+
+
+
+\abstract{Assessing the measurement model (MM) of self-report scales is crucial to obtain valid measurement of individuals' latent psychological constructs. This entails evaluating the number of measured constructs and determining which construct is measured by which item. Exploratory factor analysis (EFA) is the most-used method to evaluate these psychometric properties, where the number of measured constructs (i.e., factors) is assessed, and, afterwards, rotational freedom is resolved to interpret these factors. This study assessed the effects of an acquiescence response style (ARS) on EFA for unidimensional and multidimensional (un)balanced scales. Specifically, we evaluated (i) whether ARS is captured as an additional factor, (ii) the effect of different rotation approaches on the recovery of the content and ARS factors, and (iii) the effect of extracting the additional ARS factor on the recovery of factor loadings. ARS was often captured as an additional factor in balanced scales when it was strong. For these scales, ignoring (i.e., not extracting) this additional ARS factor, or rotating to simple structure when extracting it, harmed the recovery of the original MM by introducing bias in loadings and cross-loadings. These issues were avoided by using informed rotation approaches (i.e., target rotation), where (part of) the rotation target is specified according to \textit{a priori} expectations on the MM. Not extracting the additional ARS factor did not affect the loading recovery in unbalanced scales. Researchers should consider the potential presence of an additional ARS factor when assessing the psychometric properties of balanced scales, and use informed rotation approaches when suspecting that an additional factor is an ARS factor.}
+
+
+
+
+\begin{document}	
+
+\begin{linenumbers}
+\maketitle
+\justifying 
+
+%\setlength\parindent{1.5cm}
+
+\setcounter{secnumdepth}{4}
+\setcounter{section}{0}
+
+\section{Introduction}
+\noindent Evaluating the psychometric properties of self-report scales in behavioral sciences is crucial for a valid assessment of individuals' latent constructs (e.g., self-esteem). Commonly, the assessment of these psychometric properties entails, among other things, evaluating the measurement model (MM). The latter indicates how many latent constructs or factors are measured by the items, and which factor is measured by which items. Also, it needs to be determined whether items are good measurements of latent constructs (i.e., how strongly they load on factors), and whether they measure more than one latent construct at the same time (i.e., load on multiple factors).
+
+%\noindent Self-report scales are ubiquitous in behavioral sciences for assessing individuals with regard to latent constructs (e.g., self-esteem), and evaluating their psychometric properties is crucial for the validity of these assessments. These scales are generally composed of various questionnaire items and, for each item, the respondents rate how much they agree to this item by selecting one response option on a Likert scale. Assessing the psychometric properties of these scales entails, among other things, evaluating the measurement model (MM). The latter indicates the number of latent constructs or factors measured by the items, and which factor is measured by which items. Also, it needs to be determined whether items are good measurements of latent constructs (i.e., how strongly they load on factors), and whether they measure more than one latent construct at the same time (i.e., load on multiple factors). 
+
+The most frequently used method to unravel the psychometric properties of newly developed scales is exploratory factor analysis (EFA). Without imposing an assumed structure on the factor loadings, except (possibly) the number of factors, EFA identifies the relations between factors and items by analyzing the item correlations. Because of its advantageous exploratory nature as well as its popularity, EFA is often considered a mandatory step in the context of scale construction (\citealp{howard2016review}; \citealp{goretzko2019exploratory}).
+
+An important limitation of self-report scales is that, despite their widespread use, they might not always sufficiently capture the psychological trait being measured \citep{van2013response}. In fact, subject responses might not always be consistent with the measured psychological construct \citep{bolt2009addressing}. These inconsistencies, generally defined as response styles (RSs) or response bias, can be viewed as systematic or stylistic tendencies in the manner respondents use a rating scale when responding to self-report items \citep{paulhus1991measurement}. One well-known response style is the acquiescent one, which is a tendency to agree with items regardless of their content \citep{van2013response}.
+
+
+%[add Greenleaf and Baumgartner].  [maybe expand? Add factors that contribute to ARS as well as some examples]. 
+%Some research indicated that ARS might be related to specific personality traits (e.g., impulsiveness; \citealp{couch1960yeasayers}), but no consensus has been reached yet \citep{van2013response}. In this paper we will assume ARS not to be correlated with the psychological trait(s) being measured.  
+Failing to take into account acquiescence response style (ARS) can harm psychometric analyses in many ways. For instance, ARS can inflate observed means and correlations \citep{van2013response}, increase or decrease the strength of relations between factors and items \citep{ferrando2010acquiescence} and result in an additional factor \citep{billiet2000modeling}. These potential artifacts not only interfere with the psychometric assessment of the properties of a scale but can also invalidate the interpretation of subjects' scale scores \citep{bolt2009addressing}. %Hence, it is crucial to be able to identify and correct for ARS in psychometric analyses when analyzing self-report scales.
+
+When the scale has been previously validated, the number of factors to be measured, and their zero-loading structure are known \textit{a priori}. In such cases, ARS can be explicitly included in the MM as an additional factor. Previous research has demonstrated how ARS can be easily incorporated in the context of confirmatory factor analysis \citep{billiet2000modeling}, item response theory \citep{falk2016flexible} and latent class analysis \citep{morren2011dealing}. One crucial limitation of these confirmatory approaches, however, is the need for \textit{a-priori} knowledge regarding the MM, which is, of course, lacking when the goal is to determine this MM in the first place. 
+
+The assessment of a scale's MM can, therefore, be difficult when ARS causes distortions. In EFA, the number of factors is usually evaluated and, upon resolving rotational freedom, an additional factor could be erroneously interpreted as a dimension of the psychological construct of interest, while it is merely a consequence of ARS. In addition, when not taking ARS into account in the rotation, items may seem to measure more than one factor at the same time, or seem to be a bad measurement of a factor (i.e., low loading), which might lead researchers to drop these seemingly malfunctioning items from the scale.  Furthermore, in the most extreme case in which most, or all, items are heavily affected by ARS, the whole scale may seem to be disfunctional. 
+
+%In addition, when not taking ARS into account, items could seem to measure more than one factor at the same time, or not being good measurement of a factor (i.e., low loading), which might lead researchers to either drop these seemingly malfunctioning items from the scale erroneously, or, in the worst case scenario where all items are heavily affected by ARS, discard the whole scale. 
+
+
+While some methods have been proposed to reduce the effects of ARS on EFA (\citealp{ferrando2003unrestricted}; \citealp{lorenzo2006acquiescent}; \citealp{ferrando2016assessing}) only a few papers examined the impact of ignoring or being unaware of ARS on the recovery of factor loadings (\citealp{ferrando2010acquiescence}, \citealp{savalei2014recovering}). %\textcolor{blue}{Similarly}, in the context of comparing confirmatory and exploratory approaches,  assessed the amount of bias in factor loadings when ARS is ignored. 
+The latter studies, however, have mostly dealt with scales measuring only a single content factor (i.e., unidimensional scales) measured by continuous items or items that may be treated as such (i.e., items with more than 5 categories; \citealp{rhemtulla2012can}), which only partially mirror the features of commonly used self-report scales and preclude investigating the influence of rotation. In addition, none of these studies investigated to what extent ARS is retrieved as an additional factor by commonly used model selection criteria (e.g., Bayesian Information Criterion; \citealp*{schwarz1978estimating}), which, in empirical practice, would generally precede any further investigation of the loadings. Drawing upon these existing gaps in current research, this paper aims to extensively study the impact of ARS on the assessment of the psychometric properties of self-report scales, as well as strategies to account for ARS when using EFA. This investigation comprises a simulation study on unidimensional and multidimensional scales for two types of data (i.e., ordinal and approximately continuous data). In addition, we simulated a null scenario (i.e., without an ARS factor) that served as a point of comparison. By means of this simulation study, we will assess: (i) how often and in which conditions different model selection criteria retain the additional ARS factor, (ii) the effect of different rotation approaches on the recovery of the content and ARS factors when the additional ARS factor is retained, and (iii) the effect of (not) retaining the ARS factor on the recovery of the (properly rotated) factor loadings and correlations.\\
+
+The remainder of the paper proceeds as follows: in Section 2 we provide a general introduction to EFA and how ARS can affect some of its main steps, namely: dimensionality assessment and factor rotation. For factor rotation, we discuss two types of rotation, namely rotation to simple structure (i.e., as one usually does when unaware of a potential ARS) and informed rotation approaches (e.g., rotation to a partially specified target that takes the potential ARS factor into account). Section 3 focuses on a simulation study that evaluates the performance of EFA in assessing the psychometric properties of unidimensional and multidimensional scales (with and without the presence of ARS). Finally, in Section 4, recommendations are formulated based on the results of the simulation study along with limitations of the current study and future research directions. 
+
+\section{Theoretical Framework}
+\subsection{Factor analysis model with ARS}
+Consider that continuous responses by $N$ subjects on $J$ items are collected in a data matrix $\textbf{X}$, and that each item response is a measure of three common factors: (i) two intended-to-be-measured (i.e., content) factors $\boldsymbol{\eta_{1}}$ and $\boldsymbol{\eta_{2}}$ , and (ii) an ARS factor $\boldsymbol{\eta_{ARS}}$. A factor analysis model describes the response $x_{ij}$ of subject $i$ on item $j$ as:
+\begin{equation}
+x_{ij} = \nu_{j} + \lambda_{j_{1}}\eta_{i_{1}}  + \lambda_{j_{2}}\eta_{i_{2}} + \lambda_{j_{ARS}}\eta_{i_{ARS}} + \epsilon_{ij}
+\end{equation}
+%\begin{equation}
+%x_{i} = \nu_{i} + \Lambda_{C1}\eta_{i_{C1}}  + \Lambda_{C2}\eta_{i_{C2}}  %+ \Lambda_{ARS}\eta_{i_{ARS}}  + \epsilon_{i}
+%\end{equation}
+where $\nu_{j}$ is an item-specific intercept, $\lambda_{j_{1}}$, $\lambda_{j_{2}}$ and $\lambda_{j_{ARS}}$ are the loadings on item $j$ on the three factors, $\eta_{i_{1}}$, $\eta_{i_{2}}$ and $\eta_{i_{ARS}}$ are the factors scores of subject $i$, respectively, and $\epsilon_{ij}$ is the residual. Factors are assumed to be multivariate normally distributed $\sim$$\textbf{MVN}(\boldsymbol{\alpha}, \boldsymbol{\Phi})$\footnote{This distribution might not be realistic for the ARS factor $\eta_{i_{ARS}}$ if one keeps in mind that a score $<$ 0 would indicate a tendency to disagree. A more suitable distribution for ARS will be considered when generating the data in the simulation study section.}, independently of $\boldsymbol{\epsilon}$, which are $\sim$$\textbf{MVN}(0, \boldsymbol{\Psi})$, with $\boldsymbol{\Psi}$ containing the unique variances $\psi_{j}$ on the diagonal and zeros on the off-diagonal. 
+
+When using exploratory factor analysis (EFA; \citealp{lawley1962factor}) as a first step in assessing the psychometric properties of a scale, the factors in (1) are not (yet) labeled (i.e., researchers do not have or impose \textit{a priori} assumptions on whether a factor corresponds to a certain content factor or an ARS). %The model in Eq.(1) refers to continuous item responses but, for ordered-categorical variables, 
+Also, the assumption of continuous item responses often cannot be safely made, especially in the case of ordered-categorical variables (e.g., a Likert-scale item with \textquotedblleft disagree\textquotedblright, \textquotedblleft neither agree nor disagree\textquotedblright, and \textquotedblleft agree\textquotedblright as response options). In that case, it is better to assume that the data matrix $\textbf{X}$ is composed of polytomously scored responses that can take on $C$ possible values with $c = \{0,1,2,...,C-1\}$. %. An example of such an item might be a Likert-type item with three response options (e.g., \textquotedblleft agree \textquotedblright, )
+In a categorical EFA model, it is assumed that each of the observed responses is obtained from a discretization of a continuous unobserved response variable ${x}^{*}_{ij}$ via some thresholds parameters $\tau_{j,c}$. The threshold parameters indicate the separation between the response categories, where the first and last thresholds are defined as $\tau_{j,0} = -\infty$ and $\tau_{j,C} = -\infty$, respectively. In formal terms:
+
+\begin{equation}
+x_{ij} =  c, \,\,\,\,  if \,\,\,\, \tau_{j,c} < x_{ij}^{*} < \tau_{j,c+1} \,\,\,\, \textit{c} =0, 1,2,...,C-1.
+\end{equation} 
+
+A categorical EFA model for the vector of scores $\boldsymbol{x_{i}^{*}}$ of subject $i$ can be specified as:
+%For a vector of responses $x^{*}_{i}$, a categorical EFA model can be specified as:
+\begin{equation}
+\boldsymbol{x_{i}^{*}} = \boldsymbol{\nu^{*}} + \boldsymbol{\Lambda\eta_{i}} + \boldsymbol{\epsilon_{i}}
+\end{equation}
+where $\boldsymbol{\nu^{*}}$ is a $J$-dimensional vector of latent intercepts (i.e., intercepts of the unobserved response variables in $\boldsymbol{x_{i}^{*}}$), $\boldsymbol{\Lambda}$ is a $J$$\times$$Q$ matrix of factor loadings, $\boldsymbol{\eta_{i}}$ is a $Q$-dimensional vector of scores on the $Q$ factors, $\boldsymbol{\epsilon_{i}}$ is a $J$-dimensional vector of residuals. Gathering the loadings of the unlabeled factors in a matrix $\boldsymbol{\Lambda}$, the model implied covariance matrix $\boldsymbol{\Sigma}$ is obtained as: 
+\begin{equation}
+\boldsymbol{\Sigma} = \boldsymbol{\Lambda\Phi\Lambda} + \boldsymbol{\Psi}.
+\end{equation}
+\noindent Polychoric correlations are generally used as the input for categorical EFA, where the correlation between ordinal items is computed as the correlation of the standard bivariate normal distribution of their latent response variables $x_{ij}^{*}$ \citep{ekstrom2011generalized}. Furthermore, they are known to produce unbiased parameters estimates in factor analysis models (\citealp{babakus1987sensitivity}; \citealp{rigdon1991performance}), whereas with Pearson correlations, which are commonly used for estimating EFA with continuous item responses, the correlations among ordered-categorical items are commonly underestimated \citep{bollen1981pearson}.%Why is it important to take, therefore, ARS into account?
+
+
+%A well-known problem in EFA is to decide on the number of factors to retain, which, especially when evaluating the psychometric properties of newly developed scales, can be a crucial step to evaluate the number of underlying latent variables. In fact, extracting an incorrect number of factors can greatly impact the EFA results (citation Comrey, 1978, Fava 1992 Wood, 1996). Especially in presence of an ARS a common risk is overfactoring or, in other words, overestimating the number of factors, which might drive a researcher to mis-interpret the additional artificial dimension emerging from an ARS and assign little theoretical or substantive meaning to it. 
+
+\subsection{Potential effects of ARS on factor rotation}
+%Rotational Freedom in EFA
+Factors obtained from EFA have rotational freedom (i.e., rotating them does not affect model fit; \citealp{browne2001overview}), which should be resolved to obtain an interpretable solution.
+%Simple structure rotation
+Commonly, the goal is to strive for simple structure and different criteria can be applied to minimize the variable complexity (i.e., number of non-zero loadings per variable), the factor complexity (i.e., number of non-zero loadings per factor) or a combination of both \citep{schmitt2011rotation}. \label{refpage:R2Mj3a}\linelabel{refline:R2Mj3a}\textcolor{blue}{In this paper, we focus on minimizing the variable complexity by means of oblique simple structure rotation (i.e., allowing the factors to become correlated) because there are little to no theoretical reasons to assume that the content factors are uncorrelated in case of multidimensional constructs and minimizing the variable complexity matches the idea of non-ambiguous items that are clear measurements of only one factor. Additionally, this rotation allows content factors and the ARS factor to be correlated, which, according to recent literature, is both theoretically and empirically acceptable for some personality traits (e.g., agreeableness, extraversion, impulsiveness; see \citealp{ferrando2016assessing} and \citealp{weijters2010individual} for a review). However, we note that, in certain conditions, orthogonal rotations (i.e., assuming no correlation between content factors and an ARS factor) may be appropriate since the relation between some personality traits and acquiescence may be irrelevant or absent (\citealp{messick1958ability}; \citealp{mccrae1983social})\footnote{Note that, for unidimensional scales, \citet{ferrando2016assessing} developed a procedure to test the orthogonality assumption between a content factor and an ARS factor when a \textquotedblleft good\textquotedblright\, set of items measuring acquiescence is available.}.}
+
+%In this paper, we focus on minimizing the variable complexity by means of oblique simple structure rotation (i.e., allowing the factors to become correlated) because there are little to no theoretical reasons to assume that: (i) the content factors are uncorrelated in case of multidimensional constructs, and that (ii) the ARS factor is not correlated with the content factor(s) \citep{weijters2010individual}. Note that minimizing the variable complexity matches the idea of non-ambiguous items that are clear measurements of only one factor \citep{rao1997statistics}.
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+
+\begin{table}[]
+	\centering
+	\small
+    \caption{(Semi-) specified targets (top), and rotated loadings using uninformed and informed rotation approaches (bottom) of an EFA model with 12 items and three factors for an illustrative example.}
+	\label{tab:ExampleRot}	
+	\begin{adjustbox}{width = 0.9\textwidth}
+\small		
+%\resizebox{\textwidth}{!}{%
+	\begin{tabular}{cccccccccccccccc}
+		\hline
+		&
+		\multicolumn{15}{c}{\textbf{Target Matrices}} \\ \hline
+		&
+		&
+		&
+		&
+		&
+		\multicolumn{3}{l}{\textbf{Target Original}} &
+		\textbf{} &
+		\multicolumn{3}{l}{\textbf{Target}} &
+		\textbf{} &
+		\multicolumn{3}{l}{\textbf{Semi-specified target}} \\ \hline
+		&
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} &
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} &
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} \\ \hline
+		\textbf{$X_{1}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{0.506} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{0.295} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{2}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{0.506} &
+		\multicolumn{1}{c}{0.295} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{3}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{-0.506} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{0.295} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{-1} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{4}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{-0.506} &
+		\multicolumn{1}{c}{0.295} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{-1} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{5}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{0.506} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{0.295} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{6}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{0.506} &
+		\multicolumn{1}{c}{0.295} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{7}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{-0.506} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{0.295} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{-1} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{8}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{-0.506} &
+		\multicolumn{1}{c}{0.295} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{-1} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{9}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{0.506} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{0.295} &
+		&
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{1} &
+		&
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{10}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{0.506} &
+		\multicolumn{1}{c}{0.295} &
+		&
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{1} &
+		\multicolumn{1}{c}{1} &
+		&
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{11}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{-0.506} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{0.295} &
+		&
+		\multicolumn{1}{c}{-1} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{1} &
+		&
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		\textbf{$X_{12}$} &
+		&
+		&
+		&
+		&
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{-0.506} &
+		\multicolumn{1}{c}{0.295} &
+		&
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{-1} &
+		\multicolumn{1}{c}{1} &
+		&
+		\multicolumn{1}{c}{0} &
+		\multicolumn{1}{c}{NA} &
+		\multicolumn{1}{c}{NA} \\ \hline
+		&
+		\multicolumn{15}{c}{\textbf{Rotated loadings}} \\ \hline
+		&
+		\multicolumn{3}{l}{\textbf{Oblimin}} &
+		\textbf{} &
+		\multicolumn{3}{l}{\textbf{Target Original}} &
+		\textbf{} &
+		\multicolumn{3}{l}{\textbf{Target}} &
+		\textbf{} &
+		\multicolumn{3}{l}{\textbf{Semi-specified target}} \\ \hline
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} &
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} &
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} &
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} \\ \hline
+		\textbf{$X_{1}$} &
+		0.548 &
+		-0.071 &
+		-0.099 &
+		&
+		0.483 &
+		-0.011 &
+		0.294 &
+		&
+		0.481 &
+		-0.008 &
+		0.290 &
+		&
+		0.490 &
+		0.010 &
+		0.278 \\ \hline
+		\textbf{$X_{2}$} &
+		0.144 &
+		0.551 &
+		0.126 &
+		&
+		0.009 &
+		0.484 &
+		0.280 &
+		&
+		0.007 &
+		0.488 &
+		0.288 &
+		&
+		-0.015 &
+		0.485 &
+		0.288 \\ \hline
+		\textbf{$X_{3}$} &
+		-0.145 &
+		-0.101 &
+		0.520 &
+		&
+		-0.476 &
+		0.009 &
+		0.279 &
+		&
+		-0.477 &
+		0.014 &
+		0.283 &
+		&
+		-0.469 &
+		-0.012 &
+		0.294 \\ \hline
+		\textbf{$X_{4}$} &
+		0.254 &
+		-0.373 &
+		0.303 &
+		&
+		-0.011 &
+		-0.480 &
+		0.298 &
+		&
+		-0.013 &
+		-0.476 &
+		0.290 &
+		&
+		0.004 &
+		-0.478 &
+		0.290 \\ \hline
+		\textbf{$X_{5}$} &
+		0.537 &
+		-0.068 &
+		-0.130 &
+		&
+		0.497 &
+		-0.005 &
+		0.265 &
+		&
+		0.495 &
+		-0.002 &
+		0.262 &
+		&
+		0.502 &
+		0.003 &
+		0.250 \\ \hline
+		\textbf{$X_{6}$} &
+		0.108 &
+		0.566 &
+		0.123 &
+		&
+		-0.016 &
+		0.506 &
+		0.258 &
+		&
+		-0.018 &
+		0.510 &
+		0.266 &
+		&
+		0.011 &
+		0.508 &
+		0.266 \\ \hline
+		\textbf{$X_{7}$} &
+		-0.145 &
+		-0.079 &
+		0.520 &
+		&
+		-0.475 &
+		-0.012 &
+		0.276 &
+		&
+		-0.476 &
+		-0.007 &
+		0.279 &
+		&
+		-0.468 &
+		0.010 &
+		0.290 \\ \hline
+		\textbf{$X_{8}$} &
+		0.238 &
+		-0.397 &
+		0.271 &
+		&
+		0 &
+		-0.493 &
+		0.260 &
+		&
+		-0.001 &
+		-0.490 &
+		0.252 &
+		&
+		-0.006 &
+		-0.492 &
+		0.252 \\ \hline
+		\textbf{$X_{9}$} &
+		0.520 &
+		-0.085 &
+		-0.120 &
+		&
+		0.476 &
+		0.012 &
+		0.265 &
+		&
+		0.474 &
+		0.015 &
+		0.261 &
+		&
+		0.482 &
+		-0.014 &
+		0.250 \\ \hline
+		\textbf{$X_{10}$} &
+		0.109 &
+		0.548 &
+		0.115 &
+		&
+		-0.010 &
+		0.490 &
+		0.250 &
+		&
+		-0.012 &
+		0.493 &
+		0.258 &
+		&
+		0.005 &
+		0.492 &
+		0.258 \\ \hline
+		\textbf{$X_{11}$} &
+		-0.149 &
+		-0.085 &
+		0.511 &
+		&
+		-0.472 &
+		-0.004 &
+		0.267 &
+		&
+		-0.473 &
+		0 &
+		0.271 &
+		&
+		-0.465 &
+		0.002 &
+		0.282 \\ \hline
+		\textbf{$X_{12}$} &
+		0.217 &
+		-0.403 &
+		0.260 &
+		&
+		-0.008 &
+		-0.493 &
+		0.238 &
+		&
+		-0.009 &
+		-0.490 &
+		0.230 &
+		&
+		0.003 &
+		-0.492 &
+		0.231 \\ \hline
+		&
+		\multicolumn{15}{c}{\textbf{Factor correlations}} \\ \hline
+		&
+		\multicolumn{3}{c}{\textbf{Oblimin}} &
+		\multicolumn{1}{c}{\textbf{}} &
+		\multicolumn{3}{c}{\textbf{Target Original}} &
+		\multicolumn{1}{c}{\textbf{}} &
+		\multicolumn{3}{c}{\textbf{Target}} &
+		\multicolumn{1}{c}{\textbf{}} &
+		\multicolumn{3}{c}{\textbf{Semi-specified target}} \\ \hline
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} &
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} &
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} &
+		&
+		\multicolumn{1}{c}{\textbf{$\eta_{1}$}} &
+		\multicolumn{1}{c}{\textbf{$\eta_{2}$}} &
+		\multicolumn{1}{c}{\textbf{ARS}} \\ \hline
+		\textbf{$\eta_{1}$} &
+		1 &
+		0.072 &
+		-0.060 &
+		&
+		1 &
+		-0.003 &
+		-0.010 &
+		&
+		1 &
+		0 &
+		0.004 &
+		&
+		1 &
+		-0.001 &
+		0.001 \\ \hline
+		\textbf{$\eta_{2}$} &
+		0.072 &
+		1 &
+		0.063 &
+		&
+		-0.003 &
+		1 &
+		0.022 &
+		&
+		0 &
+		1 &
+		0.008 &
+		&
+		-0.001 &
+		1 &
+		0 \\ \hline
+		\textbf{ARS} &
+		-0.060 &
+		0.063 &
+		1 &
+		&
+		-0.010 &
+		0.022 &
+		1 &
+		&
+		0.004 &
+		0.008 &
+		1 &
+		&
+		0.001 &
+		0 &
+		1 \\ \hline
+	\end{tabular}
+%} 
+	\end{adjustbox}
+\begin{tablenotes}
+	\footnotesize
+\item Note. The \textquotedblright Target Original \textquotedblright \, loadings are the data-generating loadings, and, except for \\oblimin, the rotated loadings (below) 
+are obtained by rotating towards the target specified in \\the corresponding columns of the top part of the table.
+\end{tablenotes}
+\end{table}
+
+
+
+%Simple structure rotation violated bY ARS
+Simple structure can be pursued with uninformed or informed rotation approaches, where the former applies no \text{a priori} assumptions on the MM structure and the latter involves rotating to a (partially) specified target based on such \textit{a priori} assumptions.
+%where the latter allow the user to specify expectations regarding which factors are (not) measured by which items.
+To exemplify how (un)informed simple structure rotation can be affected by the presence of an ARS, we make use of an illustrative example, whose loadings are displayed in Table \ref{tab:ExampleRot}. 
+Specifically, the top part of the table displays the (partially) specified targets for the informed rotation approaches, while the bottom part displays the different sets of rotated loadings. Moreover, the values in the target original matrix  were used as the population values of the loadings to generate the data with $N$ = 10,000 - implying that the estimated loadings are likely very close to the population values.
+%population values of the loadings, and factor correlations used to generate the data with $N$ = 10,000 - implying that the estimated loadings are likely very close to the population values - as well as different sets of rotated loadings. 
+A visual representation of this model is depicted in Figure \ref{fig:ARSPlotDotted}, where $X_{1}$ - $X_{12}$ represent item responses\footnote{Note that the multidimensional factor model depicted in Figure \ref{fig:ARSPlotDotted} is substantively different from a bi-factor model (i.e., with a general factor; \citealp{holzinger1937bi}) due to the differences in sign for the loadings that are negative for the content factors and positive for the ARS factor, while for unbalanced scales (i.e., only positive loadings) the model in Figure \ref{fig:ARSPlotDotted} will be mathematically equivalent to a bi-factor model. Since both types of scales (i.e., balanced and unbalanced) will be addressed in this paper, bi-factor rotation approaches will not be discussed.
+}. 
+%In this paper bi-factor rotation approaches will not be discussed Since both types of scales (i.e., balanced and unbalanced) will be discussed 
+
+%, where the content factors explain the variance not accounted by the general factor (\citealp{reise2012rediscovery}; \citealp{chen2018bifactor}), and, therefore, bi-factor rotation approaches will not be discussed. -- CHANGE TO DIFFERENCES ONLY EXISTING IN BALANCED SCALES (NOT UNBALANCED) %Also, it is important to highlight that such factor structure should not be confused with that of a bi-factor model, where, differently from here, the general factor is assumed to account for the commonality shared by the content factors \citep{chen2018bifactor}, which is unrealistic to assume in case of a stylistic factor such in our case.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 1\textwidth]{ARSLucid.pdf}
+	\caption {A multidimensional factor model with an ARS factor, where the two content factors are defined as $\eta_{1}$ and $\eta_{2}$, and ARS stands for the ARS factor. The zero and non-zero loadings are indicated by normal and dashed lines, respectively, and the residuals are omitted for visual clarity. }
+	\label{fig:ARSPlotDotted}
+\end{figure}
+
+
+%To exemplify how (un)informed simple structure rotation approached could directly affect the MM in the presence of an ARS, consider a scale composed of 8 items, which all load on the ARS factor and, additionally, that each item loads on either of the two content factors. The true values of this MM are displayed in Table (X1). Moreover, using the parameters displayed in Table(X1), data are generated under an EFA model with $N$ = 10, for which the estimated unrotated loadings of an EFA model with three factors, are displayed in Table (X2)
+
+%Such simple structure can be achieved both by imposing expectations with regards to the structure of the MM, which are, commonly, based either on simple structure rotation (i.e., attempting for one non-zero loading per item; \citealp{thurstone1947multiple}) or, alternatively, rotation towards a (partially) known factor structure . %The latter approach aims at making an initial unrotated loading matrix as similar as possible to a (partially) assumed MM (e.g., a loading matrix based on results from a previous study). 
+
+
+\subsubsection{Uninformed rotation}
+%uninformed simple structure rotation approaches
+Uninformed simple structure rotation tries to achieve simple structure by minimizing a rotation criterion, without applying any user-specified expectations regarding the MM. Several oblique rotation criteria are available. One is (Direct) oblimin \citep{clarkson1988quartic}, which is widely-used and offered by popular statistical packages (e.g., SPSS, STATA); others are promax \citep{hendrickson1964promax}, promin \citep{lorenzo1999promin} and geomin (the default in Mplus; \citealp{asparouhov2009exploratory}; \citealp{yates1988multivariate}).
+
+In the example, we rotated the estimated unrotated loadings using oblimin, and the results are displayed in the bottom part of Table \ref{tab:ExampleRot}. The oblimin rotated loadings illustrate how, by using uninformed simple structure rotation, the original factor structure is not recovered. For example, item 4 and item 8 load moderately on all factors, and, without further investigations, one might decide to erroneously discard these two items from the scale.\label{refpage:R1Mj2c}\linelabel{refline:R1Mj2c} This result is not suprising, since previous research already established that, in the case of items loading on multiple factors (here due to the ARS factor), uninformed simple structure rotation criteria perform sub-optimally (\citealp{lorenzo1999promin}; \citealp{ferrando2000unrestricted}; \citealp{schmitt2011rotation}). It is interesting to observe how, in order to pursue simple structure, the rotation tries to separate the positive and negative poles of the two content factors\label{refpage:R2Mi1a}\linelabel{refline:R2Mi1a}\footnote{\textcolor{blue}{Note that DiStefano \& Molt (\citeyear{distefano2006further}; \citeyear{distefano2009self}) already noted that results from analytical rotations, such as oblimin, may be confounded by a method effect when responses differ due to item wording.}}. However, with only three factors this cannot be achieved, and, as a result, it produces many small and moderate crossloadings that seem to correspond with such a tendency to separate the different poles of each content factor. For example, the loadings of $\eta_{1}$ that are negative in the population (i.e., items 3 and 7) become primary loadings on the third factor, whereas the negative loadings on $\eta_{2}$ (i.e., items 4 and 8) become moderate loadings on all factors.
+
+ %Notably, the factor correlations are overestimated, as can be seen by the spurious positive correlations among the factors, which might cause researchers to draw erroneous conclusions on the relationship between the factors.
+
+
+%Previous research has established that, in case where items load on multiple factors, such as in the case of ARS, simple structure rotation criteria performs sub-optimally (Ferrando, 2000, 19999, Schmitt and Sass, 2011)
+
+
+
+
+%Items that are associated simoultaneously with multiple concepts can be considered ambigous (Rao, 1997)
+
+
+%How could it be affected by an ARS
+%To exemplify how an ARS could directly affect rotation to simple structure, let us assume a scale composed of 9 items, which all load on the ARS factor and, additionally, each item loads on either of the two content factors. An example of such MM structure is displayed in Table (X1), where a X represents a non-zero loading. Notably, due to the influence of the ARS, such MM does not adhere to the simple structure rotation criteria (i.e., each item measure multiple factors). Hence, rotating towards simple structure, while ignoring the presence of an ARS, would result in items loading on multiple factors, leading, in the most extreme case to discard the whole scale. As an example, consider Table (X2), where x indicates an artificial non-zero loading resulting from the ignored influence of an ARS, whereas X indicates a "true" non-zero loading of an item measuring the content factor. When presented with such MM items that are associated with multiple constructs would be considered ambiguous and, therefore, discarded. 
+
+ 
+
+%If there are no existing expectations regarding the number of factors (e.g., no prior research on the studied construct), or the potential presence of a response style, one might proceed with rotating towards simple structure. However, in the case where ARS affects all items, the assumption of simple structure would be violated
+%decide to assign theoretical meaning to the third additional factor and include it when rotating. 
+
+\subsubsection{Informed rotation}
+%Informed simple structure rotation approaches
+In informed rotation approaches (e.g., target rotation, \citealp{browne2001overview}) assumptions regarding the MM are made explicit in a user-specified target loading matrix. The loadings are, then, rotated to approximate this target loading matrix, which does not need to be fully specified (i.e., some elements may be unspecified). The specified elements can be zero or take on any value for the non-zero loadings, but, in many practical applications, it is recommended to specify only the zero loadings since precise values for the non-zero loadings are rarely, if ever, known prior to estimating the model \citep{browne2001overview}. \label{refpage:R1Mj1b}\linelabel{refline:R1Mj1b}\textcolor{blue}{Note that, for a given loading matrix, Simplimax \citep{kiers1994simplimax} may be used to obtain an optimal target, which is especially suited when researchers do not have prior expectations regarding the MM.} Furthermore, some studies have highlighted the robustness of partially (or semi-) specified target rotation when the zero target values are left unspecified and the non-zero target values are misspecified (\citealp{myers2013rotation}; \citealp{myers2015rotation}), but the generalizability of these results to fully specified target rotation as well as to misspecification of the zero loadings (e.g., erroneously specifying a non-zero loading as zero) remains unclear \citep{garcia2019improving}. 
+
+%Example using fully specified target rotation
+In the top part of Table \ref{tab:ExampleRot}, two different fully-specified target matrices are displayed, that is, one with the data-generating values, and one in which the structure was specified using zeros and ones (as is often done in practice), and the corresponding rotated loadings are shown below these target matrices. In both cases, the rotated factor loadings as well as the factor correlations are well recovered, which highlights the suitability of informed rotation approaches in the presence of violations of simple structure, for instance, due to an ARS factor.
+%In the unrealistic scenario where the  \textquotedblleft real\textquotedblright \, values are used in the target matrix, the factor loadings are recovered quite accurately. Additionally, specifying a target with zeroes and ones. In contrast, specifying a target with zeros and ones not only resulted in cross-loadings but, at the same time, a poor recovery of the primary (i.e., non-zero) loading values, indicating that, when in doubt, misspecifications of target elements can largely impact the recovery of the factor structure.
+%Rotating towards the \textquotedblleft real\textquotedblright \, values, which are never known in common practice, allows to recover the structure of the MM and the values of the loadings quite accurately. Furthermore, specifying the factor structure only with zeros and ones not only resulted in cross-loadings but, at the same time, a poor recovery of the "real" values, indicating that, when in doubt, misspecifications of factor loadings can largely impact the recovery of the factor structure.
+%Such cross-loadings could be due to the large misspecification regarding the values of the ARS factor. 
+
+%Example using semi-specified target rotation
+In practice researchers rarely know the full structure of the MM \textit{a priori}, and, in order to avoid misspecification of the unknown elements in the target, semi-specified target rotation can be used, where the unknown target elements are left unspecified. Table \ref{tab:ExampleRot} displays a semi-specified target matrix, specifying only the zero loadings, and the corresponding rotated loadings at the top and bottom part, respectively. The semi-specified target rotated loadings clearly show how zero and non-zero loadings as well as the factor correlations can be accurately recovered by specifying only part of the assumed factor structure in the target. Note that the loadings are recovered as well as with the rotation towards the fully-specified target matrices.
+
+%if some reasons exist to assume that the odds items measure factor 1, whereas the even items measure factor 2, the corresponding elements in the target might be specified as either 1s and 0s. Additionally, the elements on the ARS factor might be specified or not. The third and fourth column of Table (X1) display the results of fully specifying the structure of the first two factors and specifying the loadings on the ARS factor as 1 and 0, respectively. Notably, the 
+
+\subsection{Potential effects of ARS on dimensionality assessment}
+%How to determine the number of factors in EFA?
+Until now it was assumed that the additional ARS factor is retained, which might not always be the case in empirical applications. In fact, in EFA, the number of factors needs to be determined, and this decision generally relies on both \textquotedblleft objective\textquotedblright \, criteria and subjective judgment (i.e., interpretability). A popular objective criterion for maximum likelihood (ML) factor analysis is the Bayesian Information Criterion (BIC; \citealp{schwarz1978estimating}), which is a function of how well a model fits the data (i.e., log-likelihood) and the model's complexity (i.e., number of freely estimated parameters). For a model $M$, the BIC is calculated as
+%The BIC is a criterion that allows to balance model fit (as captured by the model's log-likelihood) and model complexity (as captured by the number of freely estimated parameters \textit{fp};\citealp{brown2014confirmatory}) and, for a model $M$, is calculated as:
+\begin{equation}
+BIC = -2LogLikelihood(M) + fp\,\,ln(N).
+\end{equation}
+where $fp$ indicates the number of free (or estimated) parameters. Even though this criterion is commonly used in empirical practice to determine the number of factors, it may malfunction if multivariate normality cannot be safely assumed like in the case of ordered-categorical data, and in such cases other approaches might be preferred. One of these alternative approaches is parallel analysis (PA;  \citealp{horn1965rationale}), which takes sampling variability into account when selecting the number of factors. In PA, the eigenvalues of the factors estimated from an empirical (polychoric) correlation matrix are compared to the distribution of the eigenvalues estimated from a number of randomly generated (polychoric) correlation matrices (e.g., 20) of the same size as the empirical ones. Afterwards, a factor is retained if its eigenvalue is larger than a given cut-off in the distribution of the eigenvalues obtained from the randomly generated data. Another flexible procedure to determine the numbers of factors is the CHull procedure (\citealp*{ceulemans2006selecting}; \citealp{lorenzo2011hull}), which can be considered as a generalization of the scree test \citep{cattell1966scree} that aims to balance model fit and complexity. This goal is achieved by first creating a plot of a goodness-of-fit measure against the degree of freedom and, then, selecting the solution which is on or close to the elbow of the higher boundary (convex hull) of the plot by means of a scree test. \citet{lorenzo2011hull} suggested to use the \textit{common part accounted for} index (CAF; \citealp{lorenzo2011hull}) as a goodness-of-fit measure.  \label{refpage:R2Mj1a}\linelabel{refline:R2Mj1a}The CAF index expresses the degree to which the extracted factor(s) capture the common variance in the data. To calculate the CAF, first the Kaiser-Meyer-Olkin (KMO; \citealp{kaiser1970second}; \citealp{kaiser1974little}) index is calculated on the estimated residual correlation matrix $\Psi_{q}$ of a factor model with $q$ factors. Then, the CAF for a model with $q$ factors is obtained as $CAF_{q}$ = 1-KMO($\Psi_{q}$). The values of the CAF index range from 0 to 1, where values close to 1 indicate that no substantial amount of common variance is left in the residual matrix after extracting $q$ factors. A crucial advantage of the CAF compared to other goodness-of-fit measures is that it can be calculated for a model with no factors, in which case the residual correlation matrix is equal to the empirical correlation matrix. For a detailed overview of \textquotedblleft objective\textquotedblright\, model selection criteria we refer the reader to \citet{lorenzo2011hull}.\\ %Note that the results obtained from these criteria should be supplemented with substantive knowledge of the measured psychological construct (\citealp{henson2006use}; \citealp{lorenzo2011hull}). \\
+Different aspects might play a role in retaining (i.e., selecting) an ARS as an additional factor. For example, various studies suggest that an ARS factor can be conceptualized as a weak factor (i.e., with items showing weak to moderate loadings; \citealp*{ferrando2004convergent}; \citealp*{danner2015acquiescence}), potentially making it harder to capture by \textquotedblleft objective\textquotedblright\, model selection criteria. Furthermore, scales that are unbalanced (i.e., with only positively worded items) or partially balanced (i.e., with few negatively worded items) might hamper the detection of an additional ARS factor since it would either be more difficult to differentiate it from the content factor(s), or even impossible in the case of unbalanced unidimensional scales (\citealp{ferrando2010acquiescence}; \citealp{savalei2014recovering}).
+%which are far from being an exception in psychological research
+
+%On the other hand, in empirical practice, a common advice is to cautiously read the results obtained from these \textquotedblleft objective\textquotedblright \, criteria and supplement them with substantive knowledge of the measured psychological construct (\citealp{henson2006use}; \citealp{lorenzo2011hull}).
+
+
+%, as noted by \citet*{lorenzo2011hull}, they are not \textquotedblleft objective\textquotedblright measures but guiding tools to be supplemented with the substantive knowledge of the construct at hand.
+%The numbers of factor suggested by a statistical model selection procedure, however, should not be considered an \textquotedblleft objective\textquotedblright  
+
+%In fact, if, on the one hand, numerous statistical procedures have been proposed to objectively select the number of factors, their results, on the other hand, should be aided by subjective judgment \citep{henson2006use}. In fact, as noted by \citet*{lorenzo2011hull}, it is important to view these procedures as guiding tools to be supplemented with the substantive knowledge of the construct at hand. 
+
+%Existing approaches
+%Numerous statistical approaches have been developed to obtain indications regarding the number of factors to retain, which are based on different criteria. For example, in maximum likelihood (ML) factor analysis, the Bayesian Information Criterion (BIC; \citealp{schwarz1978estimating}) can be used to evaluate how well a model fits the data as a fun. In addition,.....
+
+
+%How could ARS impact such selection?
+Equally important, an ARS might seriously affect the assessment of the MM regardless of it being retained (i.e., an additional factor selected) in the model selection step or not. In fact, as shown in the illustrative example in Section 2.2, conclusions with regard  to the MM are misleading if the ARS factor is retained and the loadings are rotated using uninformed simple structure rotation approaches. Alternatively, failure to select the ARS factor could result in biased loadings on the content factor(s) and bias in the factor correlations. An example of the latter is presented in Figure \ref{fig:NoARSPlotDotted}, where, after generating data using the model in Figure \ref{fig:ARSPlotDotted}, a two-factor model was estimated (i.e., ignoring the ARS factor) and the estimated loadings were rotated using oblimin. The results displayed in Figure \ref{fig:NoARSPlotDotted} indicate that not taking the ARS factor into account caused most loadings to be under/overestimated.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 1\textwidth]{NoARSLucid.pdf}
+	\caption {A multidimensional factor model in which the ARS factor is ignored. The dotted lines indicate the zero loadings, the elements in grey were not included in the estimation, and the residuals are omitted for visual clarity.}
+	\label{fig:NoARSPlotDotted}
+\end{figure}
+
+%Perhaps one of the most serious disadvantages of an ARS is that it might directly mislead the process of selecting the number of factors affecting, therefore, factor rotation (more on this below), and, potentially, the understanding of the measured construct. Imagine, for example, that an ARS would be captured by a model selection procedure, and result in an additional factor, disorienting the researcher's choice of the number of factors to retain. Assigning substantive meaning to the additional ARS dimension would directly impact not only the assessment of the psychometric properties of the scale, but, also, the interpretation of the measured construct. Similarly, if an ARS factor would not be captured or ignored, this could have directed consequences for the model parameters.
+
+
+
+
+\section{Simulation study}
+To evaluate the impact of an ARS on the assessment of the psychometric properties of unidimensional and multidimensional scales using EFA, a simulation study was conducted, where we assessed: (i) the selected number of number of factors, and the recovery of factor loadings and correlations when ARS was(ii) taken into count (i.e., extracted), and (iii) ignored (i.e., not extracted). As a point of comparison a null scenario (i.e., without an ARS factor) was simulated, the results of which are reported in the Appendix.
+
+%\subsection{Null scenario}
+%In the null scenario of the simulation study, 5 factors were manipulated: 
+The following 6 factors were manipulated:
+\begin{itemize}
+	\item The number of subjects $N$ at 2 levels: 250, 500;
+	\item The number of categories $C$ for each item at 3 levels: 3, 5, 7;
+	\item The type of scale at 2 levels: balanced, unbalanced;
+	\item The number of content factors $Q$ at 2 levels: 1, 2;
+	\item The number of items $J$ per factor at 2 levels: 12, 24;
+	\item The strength of the ARS factor at 3 levels: small, medium and large.
+\end{itemize}
+
+The sample size of 250 is in line with the recommended minimal sample for obtaining precise factor loading estimates with moderate item communalities (\citealp{fabrigar1999evaluating}; \citealp{maccallum1999sample}).	Furthermore, the manipulated levels for the number of categories were chosen to represent: (i) items that can be treated as ordinal (i.e., 3 categories), (ii) continuous (i.e., 7 categories), (iii) or both (i.e., 5 categories) \citep{rhemtulla2012can}. In addition, both balanced and unbalanced scales were included, since the former are generally suggested and preferred to detect ARS (\citealp{ferrando2010acquiescence};  \citealp{van2013response}), whereas the latter is representative of most empirical applications \citep{ferrando2010acquiescence}. Finally, both unidimensional and multidimensional scales were simulated. A full-factorial design was used with 2 (number of subjects) $\times$ 3 (number of categories) $\times$ 2 (type of scale) $\times$ 2 (number of factors) $\times$ 2 (number of items) $\times$ 3 (strength of ARS) = 144 conditions. For each condition 100 replications were generated resulting in 14400 data sets.
+
+
+%Two simulation studies were conducted to evaluate the impact of ARS on \textcolor{blue}{the assessment of} the psychometric properties of unidimensional and multidimensional scales using EFA. 
+%The psychometric properties of interest were: (i) the \textcolor{blue}{proposed} number of dimensions (i.e., number of factors), (ii) the recovery of factor loadings when ARS was taken into count, and (iii) the recovery of factor loadings when ARS was ignored. The first simulation study focused on scales with one content factor (i.e., unidimensional scales), while the second simulation study focused on scales with two content factors (i.e., multidimensional scales). %To rule out the possibility that unexpected results could depend either on the specific way that the ARS dimension was specified (e.g., distribution of the ARS factor scores; more on this below) or on the data analysis procedures (e.g., model selection criteria), a null scenario (i.e., without an ARS factor) was simulated within each simulation study. 
+
+%\subsection{Simulation study 1: unidimensional scales}
+%\subsubsection{Null Scenario}
+%In the null scenario of the first simulation study, 4 factors were manipulated: 
+%\begin{itemize}
+%	\item The number of subjects at 2 levels: 250, 500;
+%	\item The number of categories for each item at 3 levels: 3,5,7;
+%	\item The type of scale at 2 levels: balanced, unbalanced;
+%	\item The number of items at 2 levels: 12, 24.
+%\end{itemize}
+
+%The sample size of 250 is in line with the recommended minimal sample size suggested by previous studies in order to obtain precise factor loading estimates in the presence of moderate item communalities (\citealp{fabrigar1999evaluating}; \citealp{maccallum1999sample}).	In addition, the rationale for selecting the number of categories was to represent: (i) items that should be treated as ordinal (i.e., 3 categories), (ii) items that can be treated as continuous (i.e., 7 categories), and (iii) items that can be treated both as ordinal and continuous (i.e., 5 categories) \citep{rhemtulla2012can}. \textcolor{blue}{In addition}, both balanced and unbalanced scales were included, since the former are generally suggested, and preferred to prevent ARS (\citealp{ferrando2010acquiescence};  \citealp{van2013response}), whereas the latter is representative of most applications \citep{ferrando2010acquiescence}. A full-factorial design was used with 2 (number of factors) x 3 (number of categories) x 2 (type of scale) x 2 (number of items) = 24 conditions. For each condition 100 replications were generated.
+
+\subsection{Methods}
+\vspace{-0.2cm}
+\subsubsection{Data Generation}
+We used a \textit{Q}-dimensional normal ogive graded response model (noGRM) as the data generating model to be able to use the $mirt$ package \citep{mirt2012} to generate the data, which allowed us to more flexibly generate data with varying numbers of categories while not substantially deviating from a factor model. In fact, parameters in the noGRM are directly related to those of a categorical factor model (\citealp{takane1987relationship}; \citealp{kamata2008note}). 
+%Maybe keep?
+The population values of the model parameters reparametrized in a categorical confirmatory factor analysis fashion are displayed in Table \ref{tab:populationpar1}. Note that the factors were not correlated in the data generating model.
+
+
+%Table  \ref{tab:populationpar1} \textcolor{blue}{shows} the population values of the models parameters reparameterized in a categorical confirmatory factor analysis fashion.
+%----------------------------------------------TABLE 1 POPULATION PARAMETERS---------------------------------------%
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+	\caption{Population values used in the simulation study}
+	\label{tab:populationpar1}		
+\resizebox{\textwidth}{!}{%
+	\begin{tabular}{cccccccccccccccccccc}
+		\hline
+		& \multicolumn{5}{c}{\textbf{Loadings}} & \multicolumn{14}{c}{\textbf{Thresholds}}                                                                    \\ \hline
+		&
+		\multicolumn{2}{c}{\textbf{One factor}} &
+		\multicolumn{3}{c}{\textbf{Two factors}} &
+		\multicolumn{3}{c}{\textbf{3 categories}} &
+		\multicolumn{5}{c}{\textbf{5 categories}} &
+		\multicolumn{6}{c}{\textbf{7 categories}} \\ \hline
+		\textbf{item} &
+		\textbf{$\lambda$} &
+		\multicolumn{1}{l}{} &
+		\textbf{$\lambda_{C1}$} &
+		\textbf{$\lambda_{C2}$} &
+		\multicolumn{1}{l}{} &
+		\textbf{$\tau_1$} &
+		\textbf{$\tau_2$} &
+		\multicolumn{1}{l}{} &
+		\textbf{$\tau_1$} &
+		\textbf{$\tau_2$} &
+		\textbf{$\tau_3$} &
+		\textbf{$\tau_4$} &
+		\multicolumn{1}{l}{} &
+		\textbf{$\tau_1$} &
+		\textbf{$\tau_2$} &
+		\textbf{$\tau_3$} &
+		\textbf{$\tau_4$} &
+		\textbf{$\tau_5$} &
+		\textbf{$\tau_6$} \\ \hline
+		\textbf{$X_{1}$}  & 0.506     &  & 0.506    & 0        &  & 0 & -2.000 &  & 0.875 & -0.375 & -1.625 & -2.875 &  & 2.125 & 0.875 & -0.375 & -1.625 & -2.875 & -4.125 \\ \hline
+		\textbf{$X_{2}$}  & 0.506     &  & 0        & 0.506    &  & 0.182 & -1.818 &  & 1.057 & -0.193 & -1.443 & -2.693 &  & 2.307 & 1.057 & -0.193 & -1.443 & -2.693 & -3.943 \\ \hline
+		\textbf{$X_{3}$}  & 0.506     &  & (-)0.506 & 0        &  & 0.364 & -1.636 &  & 1.239 & -0.011 & -1.261 & -2.511 &  & 2.489 & 1.239 & -0.011 & -1.261 & -2.511 & -3.761 \\ \hline
+		\textbf{$X_{4}$}  & 0.506     &  & 0        & (-)0.506 &  & 0.545 & -1.455 &  & 1.420 & 0.170  & -1.080 & -2.330 &  & 2.670 & 1.420 & 0.170  & -1.080 & -2.330 & -3.580 \\ \hline
+		\textbf{$X_{5}$}  & 0.506     &  & 0.506    & 0        &  & 0.727 & -1.273 &  & 1.602 & 0.352  & -0.898 & -2.148 &  & 2.852 & 1.602 & 0.352  & -0.898 & -2.148 & -3.398 \\ \hline
+		\textbf{$X_{6}$}  & 0.506     &  & 0        & 0.506    &  & 0.909 & -1.091 &  & 1.784 & 0.534  & -0.716 & -1.966 &  & 3.034 & 1.784 & 0.534  & -0.716 & -1.966 & -3.216 \\ \hline
+		\textbf{$X_{7}$}  & (-)0.506  &  & (-)0.506 & 0        &  & 1.091 & -0.909 &  & 1.966 & 0.716  & -0.534 & -1.784 &  & 3.216 & 1.966 & 0.716  & -0.534 & -1.784 & -3.034 \\ \hline
+		\textbf{$X_{8}$}  & (-)0.506  &  & 0        & (-)0.506 &  & 1.273 & -0.727 &  & 2.148 & 0.898  & -0.352 & -1.602 &  & 3.398 & 2.148 & 0.898  & -0.352 & -1.602 & -2.852 \\ \hline
+		\textbf{$X_{9}$}  & (-)0.506  &  & 0.506    & 0        &  & 1.455 & -0.545 &  & 2.330 & 1.080  & -0.170 & -1.420 &  & 3.580 & 2.330 & 1.080  & -0.170 & -1.420 & -2.670 \\ \hline
+		\textbf{$X_{10}$} & (-)0.506  &  & 0        & 0.506    &  & 1.636 & -0.364 &  & 2.511 & 1.261  & 0.011  & -1.239 &  & 3.761 & 2.511 & 1.261  & 0.011  & -1.239 & -2.489 \\ \hline
+		\textbf{$X_{11}$} & (-)0.506  &  & (-)0.506 & 0        &  & 1.818 & -0.182 &  & 2.693 & 1.443  & 0.193  & -1.057 &  & 3.943 & 2.693 & 1.443  & 0.193  & -1.057 & -2.307 \\ \hline
+		\textbf{$X_{12}$} & (-)0.506  &  & 0        & (-)0.506 &  & 2.000 & 0  &  & 2.875 & 1.625  & 0.375  & -0.875 &  & 4.125 & 2.875 & 1.625  & 0.375  & -0.875 & -2.125 \\ \hline
+	\end{tabular}%
+}
+\end{table}
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------%
+%-----------------------------------------------------------------------------------------------------------------------%
+%-----------------------------------------------------------------------------------------------------------------------%
+
+To simulate balanced scales, for the content factor(s) half of the loadings were positive (i.e., indicative items), and the other half were negative (i.e., contra-indicative items), whereas all loadings were positive to simulate unbalanced scales. Furthermore, as displayed in Table~\ref{tab:populationpar1}, the distance between the first threshold of the easiest and the most difficult item was 2 standard deviations (e.g., for items with three categories, first threshold of item 1 = 0, and first threshold of item 12 = 2). %Furthermore, the thresholds were selected such that the differences in the same thresholds between two items were at most 2 standard deviations (e.g., first threshold of item 1 = 0, and first threshold of item 12 = 2), making sure that the mean of all thresholds was the same for all items and in all conditions. %This \textcolor{blue}{method} of generating thresholds made sure that the number of categories does not change the overall item means. In the condition with 24 items, the same parameters were repeated twice.
+To avoid estimation issues (e.g., non-convergence), we only accepted data sets where each item's category contains at least a single observation. In the rare cases where a category was not present among the generated scores for a specific item, the entire data generation process was repeated until all response categories were observed. 
+
+The ARS factor scores were sampled from a right-censored normal distribution. This distribution allowed us to simulate subjects who either did or did not show an ARS (i.e., have a positive or zero factor score on the ARS dimension), without allowing for scores representing a disagreeing tendency.
+%To match the idea that an ARS is conceptualized as a tendency to agree with items regardless of their content, the ARS factor scores were sampled from a right-censored normal distribution. This distribution allowed us to simulate subjects who either did or did not show an ARS (i.e., have a positive or zero factor score on the ARS dimension), without allowing for scores representing a \textcolor{blue}{disagreeing tendency}. 
+Furthermore, with regard to the three levels of the ARS factor, the values of the loadings for the small, medium and large ARS scenarios were .218, .343 and .506, respectively\footnote{The loading values are converted from discrimination parameters of .38, .62 and 1, which were chosen such that the ARS factor affected the item responses drastically less than, less than or as much as (one of) the content factors, respectively. Note that, for a unidimensional noGRM, a discrimination parameter $\alpha_{j}$ can be converted to a factor loading $\lambda_{j}$ as $\lambda_{j}$ = $\frac{\alpha_{j}}{\sqrt{1+\alpha_{j}^{2}}}$ \citep{kamata2008note}.}. 
+%Maybe keep?
+The effects of a small, medium and large ARS on the items' univariate distribution are illustrated by the example shown in Figure~\ref{fig:ARS}, where data were generated for an item with 5 categories, 10,000 observations, and using the thresholds of the seventh item in Table \ref{tab:populationpar1}. Clearly, the higher categories (i.e., 4 and 5) are more often selected as the strength of the ARS increases.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 1\textwidth]{Rplot.pdf}
+	\caption {Effects of the ARS manipulations on a 5 categories item with $\tau_{j} = \left\lbrace -3.091, -1.091, -0.909, -2.909 \right\rbrace $}
+	\label{fig:ARS}
+\end{figure}
+
+
+\subsubsection{Data Analysis}
+
+The analyses proceeded as follows: first, for each generated dataset, we estimated EFA models with up to three factors, in the case of unidimensional scales, and up to four factors, in the case of multidimensional scales. Furthermore, to study the effects of ARS when treating the data as ordinal or continuous (e.g., ordinal for 3 categories or approximately continuous for 7 categories), the EFA models were estimated both for Pearson correlations and polychoric correlations.\label{refpage:R2Mj3b}\linelabel{refline:R2Mj3b} \textcolor{blue}{Note that the initial factor solutions were estimated with orthogonal factors and using maximum likelihood estimation.}
+
+%BIC
+
+Afterwards, three model selection criteria were considered to evaluate the number of dimensions (i.e., select among the three/four factor models), namely: BIC, Parallel Analysis (PA), and the CHull using the CAF index as a goodness-of-fit measure (See Section 2.3)\footnote{Note that the \textit{multichull} package imposes a minimal proportional increase in fit for a more complex model to be included in the hull (see \citealp{vervloet2017multichull} for more details). By default, this minimal increase is set to 0.01. For the simulation study,  we lowered it to 0.001, because this minimal value was not used in \citet{lorenzo2011hull} and a value of 0.01 left the CHULL insensitive to small ARS factors.}. 
+%PA
+For PA, we retained a factor if its eigenvalue was larger than a given $95^{th}$ percentile in the distribution of eigenvalues obtained from 20 randomly generated data matrices. Specifically, we used the $95^{th}$ percentile as the selected cut-off, since it is commonly used in practice \citep{lorenzo2011hull}. 
+
+%CHull
+%For the CHull, for each of the estimated factor models, the \textit{common part accounted for} index (CAF; \citealp{lorenzo2011hull}) was used as a goodness-of-fit measures and plotted against the model's degrees of freedom. The CAF index expresses the degree to which the extracted factor(s) capture the common variance in the data. To calculate the CAF, first the Kaiser-Meyer-Olkin (KMO; \citealp{kaiser1970second}; \citealp{kaiser1974little}) index is calculated on the estimated residual correlation matrix $\Psi_{q}$ of a factor model with $q$ factors. Then, the CAF for a model with $q$ factors is obtained as $CAF_{q}$ = 1-KMO($\Psi_{q}$). The values of the CAF index range from 0 to 1, where values close to 1 indicate that no substantial amount of common variance is left in the residual matrix after extracting $q$ factors. A crucial advantage of the CAF is that it can be calculated for a model with no factors, in which case the residual correlation matrix is equal to the empirical correlation matrix. 
+
+
+%The analyses proceeded as follows: first, for each generated dataset, three different factor models, that is, with 1, 2 and 3, factors were estimated. Furthermore, to study the effects of ARS both when considering the data as ordinal or continuous (e.g., ordinal for 3 categories or approximately continuous for 7 categories), the exploratory factor models were estimated \textcolor{blue}{by} both polychoric correlations and Pearson correlations.
+%BIC
+%Afterwards, three different model selection criteria were considered to evaluate the number of dimensions (i.e., select among the three factor models), namely: the Bayesian Information Criterion (BIC; \citealp{schwarz1978estimating}), Parallel Analysis (PA; \citealp{horn1965rationale}), and the Convex Hull procedure for EFA models (CHull; \citealp{ceulemans2006selecting}; \citealp{lorenzo2011hull}). 
+
+%The BIC is a very popular model selection criterion in the context of %factor analytical models (\citealp{lorenzo2011hull}; \citealp{preacher2013choosing}), which balances model fit (as captured by the model's log-likelihood) and model complexity (as captured by the number of freely estimated parameters \textit{fp}; \citealp{brown2014confirmatory}) and, for a model $M$, is calculated as:
+%\begin{equation}
+%BIC = -2LogLikelihood(M) + fpln(N).
+%\end{equation}
+%PA
+%PA is a procedure that allows to take sampling variability into account when selecting the number of factors. Specifically, in PA, a number of randomly sampled data matrices of the same size as the empirical one are first generated. Afterwards, for each of the factors, the distribution of eigenvalues across these randomly generated data matrices, are compared to those of the factors estimated for the empirical data. Specifically, the eigenvalue for the first factor estimated from the empirical data is compared to the distribution of eigenvalues for the first factors from the randomly generated data, \textcolor{blue}{subsequently} the same procedure is repeated for the second factor, and so forth. A factor obtained using the empirical data is, then, retained if its eigenvalue is larger than a given threshold in the distribution of eigenvalues obtained from the randomly generated data. We generated, for each model, 10 random correlation matrices and used the $95^{th}$ percentile as a selected threshold, since it is commonly used in practice \citep{lorenzo2011hull}. 
+%CHull
+%The CHull procedure can be considered as a generalization of the scree test \citep{cattell1966scree} that aims to balance model fit and complexity. This goal is achieved by first creating a screelike plot of a goodness-of-fit measure against the degrees of freedom and, then, selecting the solution which is (on or) close to the elbow of the higher boundary (convex hull) of the plot (\citealp{ceulemans2006selecting} \citealp{lorenzo2011hull}). Different goodness-of-fit measures can be used for such a plot but, for EFA, \citet{lorenzo2011hull} recommended to use %either the comparative fit index (CFI; \citealp{bentler1990comparative}) or the common part accounted for index (CAF; \citealp{lorenzo2011hull}). The CAF index expresses the degree to which the extracted factor(s) capture the common variance in the data. To calculate the CAF, first the Kaiser-Meyer-Olkin (KMO; \citealp{kaiser1970second}; \citealp{kaiser1974little}) index is calculated on the estimated residual correlation matrix $\Delta_{q}$ of a factor model with $q$ factors. Then, the CAF for a model with $q$ factors is obtained as $CAF_{q}$ = 1-KMO($\Delta_{q}$). The values of the CAF index range from 0 to 1, where values close to 1 indicate that no substantial amount of common variance is left in the residual matrix after extracting $q$ factors. A crucial advantage of the CAF is that it can be calculated for a model with no factors, in which case the residual correlation matrix is equal to the empirical correlation matrix. 
+
+\begin{table}[]
+	\begin{center}
+	\caption{Target matrices}
+	\label{tab:targetmat}		
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{ccccccccccc}
+			& \multicolumn{10}{c}{\textbf{Target Matrices}}             \\ \hline
+			& \multicolumn{2}{c}{\textbf{Unidimensional scales}} & \textbf{} & \multicolumn{7}{c}{\textbf{Multidimensional scales}}                                            \\ \hline
+			& \multicolumn{2}{c}{\textbf{FST}}                   & \textbf{} & \multicolumn{3}{c}{\textbf{FST}}         & \textbf{} & \multicolumn{3}{c}{\textbf{SST}}         \\ \hline
+			& \textbf{$\eta_{1}$}             & \textbf{ARS}             &           & \textbf{$\eta_{1}$} & \textbf{$\eta_{2}$} & \textbf{ARS} &           & \textbf{$\eta_{1}$} & \textbf{$\eta_{2}$} & \textbf{ARS} \\ \hline
+			\textbf{$X_{1}$}  & 1    & 1  &  & 1     & 0 & 1  &  & NA    & 0 & NA \\ \hline
+			\textbf{$X_{2}$}  & 1    & 1  &  & 0 & 1     & 1  &  & 0 & NA    & NA \\ \hline
+			\textbf{$X_{3}$}  & 1    & 1  &  & (-)1  & 0 & 1  &  & NA    & 0 & NA \\ \hline
+			\textbf{$X_{4}$}  & 1    & 1  &  & 0 & (-)1  & 1  &  & 0 & NA    & NA \\ \hline
+			\textbf{$X_{5}$}  & 1    & 1  &  & 1     & 0 & 1  &  & NA    & 0 & NA \\ \hline
+			\textbf{$X_{6}$}  & 1 & 1  &  & 0 & 1     & 1  &  & 0 & NA    & NA \\ \hline
+			\textbf{$X_{7}$}  & (-)1 & 1  &  & (-)1  & 0 & 1  &  & NA    & 0 & NA \\ \hline
+			\textbf{$X_{8}$}  & (-)1 & 1  &  & 0 & (-)1  & 1  &  & 0 & NA    & NA \\ \hline
+			\textbf{$X_{9}$}  & (-)1 & 1  &  & 1     & 0 & 1  &  & NA    & 0 & NA \\ \hline
+			\textbf{$X_{10}$} & (-)1 & 1  &  & 0 & 1     & 1  &  & 0 & NA    & NA \\ \hline
+			\textbf{$X_{11}$} & (-)1 & 1 &  & (-)1  & 0 & 1 &  & NA    & 0 & NA \\ \hline
+			\textbf{$X_{12}$} & (-)1 & 1  &  & 0 & (-)1  & 1  &  & 0 & NA    & NA \\ \hline
+		\end{tabular}%
+	}
+	\end{center}
+ \begin{tablenotes}[flushleft]
+	\small
+	\item 	Note. FST = Fully-specified target; SST = Semi-specified target.
+\end{tablenotes}
+
+\end{table}
+
+Next, irrespective of the results of the model selection procedures, the loadings for the models with and without the ARS factor were rotated using uninformed rotation approaches and informed rotation approaches.\label{refpage:R1Mj2a}\linelabel{refline:R1Mj2a} \textcolor{blue}{For uninformed rotation, we chose oblimin since it is a popular rotation approach available in most statistical softwares\footnote{\textcolor{blue}{Geomin \citep{yates1988multivariate} was excluded due to its sensitivity to local minima (\citealp{browne2001overview}; \citealp{asparouhov2009exploratory})}}, and it allowed us to assess the effect of naively rotating towards simple structure when an additional factor is extracted (i.e., as one would do when unaware of a potential ARS)}\footnote{For the purpose of evaluating the loadings recovery, the signs of the oblimin rotated factor loadings were reflected to match the ones used to generated the data.}. For informed rotations, we used fully specified target (FST) and semi-specified target (SST) rotations, and the target matrices are displayed in Table~\ref{tab:targetmat}. For FST rotation, the elements of both the content and the ARS factor were fully specified in the target matrices using ones and zeros for the non-zero and zero loadings, respectively, whereas only the zero loadings on the content factor were specified for SST. Also, FST and SST were used both when ARS factor was retained or not for multidimensional scales, whereas only FST was used when the ARS factor was retained for unidimensional scales.
+%\footnote{SST rotations towards the ARS factor, for one-and two-dimensional scales, as well as SST towards the content factor for unidimensional sales were also considered. However, they were discarded due to distorted results in most conditions.}. 
+Oblique Procrustes rotation was used for each target rotation. 
+
+%a different approach was followed depending on the number of content factors\footnote{SST rotations towards the ARS factor, for one-and two-dimensional scales, as well as SST towards the content factor for unidimensional sales were also considered. Howeve, they were discarded due to distorted results in most conditions}. In the case of scales with only one content factor (i.e., unidimensional), two different SSTs were constructed by specifying the loadings on either the content factor ($SST_{C}$) or the ARS factor ($SST_{ARS}$) as (plus or minus) one. In the conditions with scales with two content factors (i.e., multidimensional), the loadings were rotated either towards the zero loadings of the content factors ($SST_{C}$), or, alternatively, towards the ARS factor ($SST_{ARS}$) by specifying its loadings in the target as (plus or minus) one. Oblique Procrustes rotation was used for each target rotation. For oblimin rotated loadings, the sign of the estimated oblimin factor loadings was reflected to match the ones used to generated the data for the purpose of evaluating the loadings recovery. That is, if the first half of the factor loadings was negative and the second half was positive, the sign of these two halves was reversed (i.e. the factor as a whole was reflected). 
+
+\subsubsection{Outcome measures} 
+The true positive rate (TPR) was calculated for the BIC, PA and CHull, both for the models estimated using polychoric correlations and Pearson correlations. Here, the TPR represents the proportion of selecting a two- or three-factor model for unidimensional and multidimensional scales, respectively - that is, the proportion of selecting the additional ARS factor.
+
+
+%The performance of the different model selection criteria in selecting the number of factors was assessed by calculating the true positive rate (TPR) for the BIC, PA and CHull, both for the models estimated using polychoric correlations and Pearson correlations. Here, the TPR represents the proportion of selecting a two- or three-factor model for unidimensional and multidimensional scales, respectively - that is, the proportion of selecting the additional ARS factor. 
+
+Furthermore, the root mean square error (RMSE) between the estimated and true values of the factor loadings was calculated as  $RMSE_{loadings} = \sqrt{\frac{1}{JQ} \sum_{q=1}^{Q} \sum_{j=1}^{J} (\hat{\lambda_{jq}} - \lambda_{jq})^2}$. Note that this was computed twice for each generated data set - that is, for the model excluding the ARS factor and the model including it (i.e., regardless of the number of factors suggested by the model selection criteria) - and both values were averaged across all replications in a cell of the factorial design. 
+%Maybe keep?
+%\textcolor{red}{Specifically, the $RMSE_{loadings}$ was calculated for one- and two-factor models for scales with only one content factor, and for two- and three-factors models for scales with two content factors.}
+
+%Furthermore, to evaluate the recovery of the loadings, the root mean square error (RMSE) between the estimated and true values of the factor loadings was calculated as  $RMSE_{loadings} = \sqrt{\frac{1}{JQ} \sum_{q=1}^{Q} \sum_{j=1}^{J} (\hat{\lambda_{jq}} - \lambda_{jq})^2}$. This measure was computed for each estimated parameter and averaged across all replications in a cell of the factorial design. The $RMSE_{loadings}$ was calculated both for the models without and with the ARS factor; that is, for one- and two-factor models for scales with only one content factor, and for two- and three-factors models for scales with two content factors. 
+Then, an $RMSE$ was obtained for the content factor(s) ($RMSE_{loadingsC}$) and the ARS factor\footnote{Note that the variance of a right-censored normal distribution is smaller than the identification restrictions imposed on the variance of each factor (i.e., imposing them to equal 1). As a consequence, the loadings on the ARS factor seem to be underestimated. Therefore, in computing the $RMSE_{loadingsARS}$, the values of the estimated loadings on the ARS factor were compared to the values of the original loadings rescaled by the variance of a right-censored normal distribution. That is, we multiplied the value of the original loadings on the ARS factor by the standard deviation of a right-censored normal distribution, which is $\approx$.583. This resulted in loadings on the ARS factor of .128, .200 and .295 for the small, medium and large ARS conditions, respectively.} ($RMSE_{loadingsARS}$) when ARS was extracted, and only for the content factor(s) when ARS was not extracted. In addition, we evaluated whether ARS could cause items to load on more than one content factor simultaneously (i.e., cross-loadings), which would cause researchers to conclude that these items are not pure measurements of one factor. Therefore, for multidimensional scales the recovery of the loadings that are zero in the data-generating model (i.e., on the content factors) was also assessed by calculating the mean maximum absolute bias (MMAB). Specifically, we first selected, for each rotation approach, the item with the maximum absolute difference between the estimated and the \textquotedblleft true\textquotedblright \, (zero) loading, and then we averaged across data-sets%\footnote{The MMAB was also calculated for the non-zero loadings, and the results are reported in the Appendix.}. 
+. In addition, the recovery of the factor correlations between content factors was calculated as $RMSE_{FactorCorr} = \sqrt{(\hat{\phi_{\eta_{1}\eta_{2}}}-\phi_{\eta_{1}\eta_{2}})^2}$. Similarly to the factor loadings, this measure was computed twice for each generated data set in the conditions with multidimensional scales (i.e., for the model excluding the ARS factor and for the model including it), and averaged across all data sets in a cell of the factorial design. 
+%Furthermore, to evaluate the factor correlations/loadings recovery the root mean square error (RMSE) between the estimated and true values of the factor correlations/loadings was calculated as $RMSE_{factorcorr} = \frac{1}{R} \sqrt{\sum(\hat{\Sigma}-\Sigma)^2}$ and $RMSE_{loadings} = \frac{1}{R} \sqrt{\sum_{q=1}^{Q} \sum_{j=1}^{J} (\hat{\lambda_{jq}} - \lambda_{jq})^2}$  for factor correlations and loadings, respectively. This measure was used to quantify the average deviation from the true value for each estimated parameter, averaged across all replications $R$ in a cell of the factorial design. The $RMSE_{loadings}$ was calculated both for one factor and two-factor models in the case of scales with only one content factor, and for two- and three-factors models in the case of scales with two content factors. That is, an $RMSE_{loadings}$ was obtained for the content trait(s) and the ARS trait when ARS was taken into account, and only for the content trait(s) when ARS was not included (e.g., estimating a one factor model in the conditions with unindimensional scales). Similarly, in the first simulation study we calculated the $RMSE_{factorcorr}$ for all rotation approaches when at least two factors were retained. Note that because a right-censored distribution was used to generate the ARS factor scores, the magnitude of the loadings on the ARS factor in the generating model are actually not directly comparable to the estimated loadings. In fact, for model identification purposes, in EFA the variance of each factor is restricted to 1. However, the variance of a right-censored normal distribution is smaller than the variance of a normal distribution, which could, then, cause the loadings to be underestimated. Therefore, when calculating the $RMSE_{loadingsARS}$, the values of the estimated loadings on the ARS factor were not subtracted from the values of the original loadings, but from the values of the original loadings rescaled by the variance of a right-censored normal distribution. That is, we multiplied the value of the original loadings on the ARS factor by the standard deviation of a right-censored normal distribution, which is $\approx$.583. This resulted in loadings on the ARS factor of .128, .200 and .295 for the small, medium and large ARS conditions, respectively.
+
+The results for the model selection and recovery of factor loadings and factor correlations when ARS was not simulated (i.e., null scenario), are reported in the Appendix (Tables \ref{tab:S1NullMod} - \ref{tab:S2RMSENull}) since the performance of the model selection and rotation approaches in these conditions only serves as a comparison. In short, their performance was generally satisfactory in all conditions, with a TPR - in this case equal to the proportion of selecting the correct number of content factors - of at least .90 for all model selection criteria, and $RMSE_{loadingsC}$ and $RMSE_{FactorCorr}$ $<$ .1 for all rotation approaches. 
+
+
+\subsubsection{Data simulation, softwares and packages}
+The data were simulated and analyzed using R \citep{team2013r}. Specifically, for generating the data, the R package $mirt$ was used \citep{mirt2012}, while EFA and PA were conducted using the $psych$ package \citep{revelle2015package}. The CHull procedure was performed using the $multichull$ package \citep{vervloet2017multichull}. For target rotation, we used a function based on \citet{jennrich2002simple}, which, unlike the one in the popular R package $psych$, does not rescale the factors to improve agreement to the target. In fact, rescaling the factors would undesirably distort the FST rotated loadings, that is, both zero and non-zero loadings are rescaled, and thus increased to achieve agreement with the potentially misspecified values for the non-zero loadings.
+
+\subsection{Results}
+%\subsubsection{Unidimensional scales}
+\subsubsection{Dimensionality assessment}
+
+%\subsection{ARS scenario}
+%Unidimensional main effect
+\begin{table}[]
+	\caption{Main effects on model selection TPR for multidimensional balanced scales in function of strength of the ARS and the simulated conditions}
+	\label{S2MODSELECTMAINBAL}
+\resizebox{\textwidth}{!}{%
+	\begin{tabular}{ccccccccccccccccccc}
+		\hline
+		\multicolumn{1}{l}{} & \multicolumn{18}{c}{\textbf{Model selection Multidimensional Balanced Scales}}                                                                \\ \hline
+		\multicolumn{1}{l}{} & \multicolumn{6}{c}{\textbf{Small ARS}}        & \multicolumn{6}{c}{\textbf{Medium ARS}}       & \multicolumn{6}{c}{\textbf{Large ARS}}        \\ \hline
+		\multicolumn{1}{l}{} &
+		\multicolumn{3}{c}{\textbf{Pearson}} &
+		\multicolumn{3}{c}{\textbf{Polychoric}} &
+		\multicolumn{3}{c}{\textbf{Pearson}} &
+		\multicolumn{3}{c}{\textbf{Polychoric}} &
+		\multicolumn{3}{c}{\textbf{Pearson}} &
+		\multicolumn{3}{c}{\textbf{Polychoric}} \\ \hline
+		\multicolumn{1}{l}{} &
+		\textbf{CHull} &
+		\textbf{BIC} &
+		\textbf{PA} &
+		\textbf{Chull} &
+		\textbf{BIC} &
+		\textbf{PA} &
+		\textbf{CHull} &
+		\textbf{BIC} &
+		\textbf{PA} &
+		\textbf{CHull} &
+		\textbf{BIC} &
+		\textbf{PA} &
+		\textbf{CHull} &
+		\textbf{BIC} &
+		\textbf{PA} &
+		\textbf{CHull} &
+		\textbf{BIC} &
+		\textbf{PA} \\ \hline
+		\textbf{N = 250}     & 0.057 & 0 & 0.030 & 0.038 & 0 & 0 & 0.488 & 0.002 & 0.718 & 0.488 & 0.172 & 0.177 & 0.995 & 0.907 & 0.998 & 0.992 & 0.990 & 0.997 \\ \hline
+		\textbf{N = 500}     & 0.045 & 0 & 0.058 & 0.047 & 0 & 0 & 0.788 & 0.350 & 0.957 & 0.743 & 0.717 & 0.078 & 1 & 0.998 & 1 & 1 & 1 & 0.993 \\ \hline
+		\textbf{C = 3}       & 0.048 & 0 & 0.022 & 0.035 & 0 & 0 & 0.620 & 0.057 & 0.818 & 0.545 & 0.592 & 0.208 & 0.998 & 0.938 & 1 & 0.995 & 1 & 1 \\ \hline
+		\textbf{C = 5}       & 0.052 & 0 & 0.035 & 0.050 & 0 & 0 & 0.610 & 0.200 & 0.812 & 0.612 & 0.350 & 0.105 & 0.995 & 0.920 & 0.998 & 0.992 & 0.985 & 0.988 \\ \hline
+		\textbf{C = 7}       & 0.052 & 0 & 0.075 & 0.042 & 0 & 0 & 0.685 & 0.270 & 0.882 & 0.690 & 0.390 & 0.070 & 1 & 1 & 1 & 1 & 1 & 0.998 \\ \hline
+		\textbf{J = 12}      & 0.065 & 0 & 0.042 & 0.050 & 0 & 0 & 0.517 & 0.067 & 0.723 & 0.488 & 0.280 & 0.083 & 0.995 & 0.905 & 0.998 & 0.992 & 0.990 & 0.990 \\ \hline
+		\textbf{J = 24}      & 0.037 & 0 & 0.047 & 0.035 & 0 & 0 & 0.760 & 0.285 & 0.952 & 0.743 & 0.608 & 0.172 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+	\end{tabular}%
+}
+	\begin{tablenotes}[flushleft]
+		\small
+		\item 	Note. CHull = convex hull based on the Common Part Accounted For (CAF) index; BIC = Bayesian Information Criterion; PA = parallel analysis.
+	\end{tablenotes}
+	
+\end{table}
+
+\begin{table}[]
+	\caption{Main effects on model selection TPR for multidimensional unbalanced scales in function of strength of the ARS and the simulated conditions}
+	\label{S2MODSELECTMAINUNBAL}
+\resizebox{\textwidth}{!}{%
+	\begin{tabular}{ccccccccccccccccccc}
+		\hline
+		\multicolumn{1}{l}{} & \multicolumn{18}{c}{\textbf{Model selection Multidimensional Balanced Scales}}                                                                \\ \hline
+		\multicolumn{1}{l}{} & \multicolumn{6}{c}{\textbf{Small ARS}}        & \multicolumn{6}{c}{\textbf{Medium ARS}}       & \multicolumn{6}{c}{\textbf{Large ARS}}        \\ \hline
+		\multicolumn{1}{l}{} &
+		\multicolumn{3}{c}{\textbf{Pearson}} &
+		\multicolumn{3}{c}{\textbf{Polychoric}} &
+		\multicolumn{3}{c}{\textbf{Pearson}} &
+		\multicolumn{3}{c}{\textbf{Polychoric}} &
+		\multicolumn{3}{c}{\textbf{Pearson}} &
+		\multicolumn{3}{c}{\textbf{Polychoric}} \\ \hline
+		\multicolumn{1}{l}{} &
+		\textbf{CHull} &
+\textbf{BIC} &
+\textbf{PA} &
+\textbf{Chull} &
+\textbf{BIC} &
+\textbf{PA} &
+\textbf{CHull} &
+\textbf{BIC} &
+\textbf{PA} &
+\textbf{CHull} &
+\textbf{BIC} &
+\textbf{PA} &
+\textbf{CHull} &
+\textbf{BIC} &
+\textbf{PA} &
+\textbf{CHull} &
+\textbf{BIC} &
+\textbf{PA} \\ \hline
+		\textbf{N = 250}     & 0.032 & 0 & 0.010 & 0.028 & 0 & 0 & 0.043 & 0 & 0.008 & 0.032 & 0.002 & 0 & 0.020 & 0 & 0.003 & 0.017 & 0.003 & 0 \\ \hline
+		\textbf{N = 500}     & 0.017 & 0 & 0.007 & 0.013 & 0.003 & 0 & 0.017 & 0 & 0.002 & 0.015 & 0 & 0 & 0.020 & 0 & 0 & 0.022 & 0 & 0 \\ \hline
+		\textbf{C = 3}       & 0.022 & 0 & 0.018 & 0.028 & 0.005 & 0 & 0.035 & 0 & 0.005 & 0.022 & 0.002 & 0 & 0.022 & 0 & 0.002 & 0.028 & 0.005 & 0 \\ \hline
+		\textbf{C = 5}       & 0.022 & 0 & 0 & 0.012 & 0 & 0 & 0.030 & 0 & 0.005 & 0.020 & 0 & 0 & 0.022 & 0 & 0.002 & 0.015 & 0 & 0 \\ \hline
+		\textbf{C = 7}       & 0.028 & 0 & 0.008 & 0.022 & 0 & 0 & 0.025 & 0 & 0.005 & 0.028 & 0 & 0 & 0.015 & 0 & 0 & 0.015 & 0 & 0 \\ \hline
+		\textbf{J = 12}      & 0.038 & 0 & 0.013 & 0.027 & 0.003 & 0 & 0.043 & 0 & 0.010 & 0.038 & 0.002 & 0 & 0.030 & 0 & 0.003 & 0.033 & 0.003 & 0 \\ \hline
+		\textbf{J = 24}      & 0.010 & 0 & 0.003 & 0.015 & 0 & 0 & 0.017 & 0 & 0 & 0.008 & 0 & 0 & 0.010 & 0 & 0 & 0.005 & 0 & 0 \\ \hline
+	\end{tabular}%
+}
+	\begin{tablenotes}[flushleft]
+		\small
+		\item 	Note. CHull = convex hull based on the Common Part Accounted For (CAF) index; BIC = Bayesian Information Criterion; PA = parallel analysis.
+	\end{tablenotes}
+	
+\end{table}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+%\begin{table}[]
+%	\caption{Main effects on model selection TPR for multidimensional scales in function of strength of the ARS and the simulated conditions}
+%	\label{S2MODSELECTMAIN}
+%	\resizebox{\textwidth}{!}{%
+%		\begin{tabular}{cllllllllllllllllll}
+%			\hline
+%			\multicolumn{1}{l}{} & \multicolumn{18}{c}{\textbf{Model Selection Multidimensional Scales}}                                                                         \\ \hline
+%			\multicolumn{1}{l}{} & \multicolumn{6}{c}{\textbf{Small ARS}}        & \multicolumn{6}{c}{\textbf{Medium ARS}}       & \multicolumn{6}{c}{\textbf{Large ARS}}        \\ \hline
+%			\multicolumn{1}{l}{} &
+%			\multicolumn{3}{c}{\textbf{Pearson}} &
+%			\multicolumn{3}{c}{\textbf{Polychoric}} &
+%			\multicolumn{3}{c}{\textbf{Pearson}} &
+%			\multicolumn{3}{c}{\textbf{Polychoric}} &
+%			\multicolumn{3}{c}{\textbf{Pearson}} &
+%			\multicolumn{3}{c}{\textbf{Polychoric}} \\ \hline
+%			\multicolumn{1}{l}{} &
+%			\multicolumn{1}{c}{\textbf{CHull}} &
+%			\multicolumn{1}{c}{\textbf{BIC}} &
+%			\multicolumn{1}{c}{\textbf{PA}} &
+%			\multicolumn{1}{c}{\textbf{CHull}} &
+%			\multicolumn{1}{c}{\textbf{BIC}} &
+%			\multicolumn{1}{c}{\textbf{PA}} &
+%			\multicolumn{1}{c}{\textbf{CHull}} &
+%			\multicolumn{1}{c}{\textbf{BIC}} &
+%			\multicolumn{1}{c}{\textbf{PA}} &
+%			\multicolumn{1}{c}{\textbf{CHull}} &
+%			\multicolumn{1}{c}{\textbf{BIC}} &
+%			\multicolumn{1}{c}{\textbf{PA}} &
+%			\multicolumn{1}{c}{\textbf{CHull}} &
+%			\multicolumn{1}{c}{\textbf{BIC}} &
+%			\multicolumn{1}{c}{\textbf{PA}} &
+%			\multicolumn{1}{c}{\textbf{CHull}} &
+%			\multicolumn{1}{c}{\textbf{BIC}} &
+%			\multicolumn{1}{c}{\textbf{PA}} \\ \hline
+%			\textbf{N = 250}     & 0.044 & 0 & 0.020 & 0.033 & 0 & 0 & 0.266 & 0.001 & 0.363 & 0.260 & 0.087 & 0.088 & 0.507 & 0.453 & 0.501 & 0.504 & 0.497 & 0.498 \\ \hline
+%			\textbf{N = 500}     & 0.031 & 0 & 0.032 & 0.030 & 0.002 & 0 & 0.402 & 0.175 & 0.479 & 0.379 & 0.358 & 0.039 & 0.510 & 0.499 & 0.500 & 0.511 & 0.500 & 0.497 \\ \hline
+%			\textbf{C = 3}       & 0.035 & 0 & 0.020 & 0.031 & 0.002 & 0 & 0.328 & 0.029 & 0.411 & 0.284 & 0.298 & 0.104 & 0.510 & 0.469 & 0.501 & 0.511 & 0.502 & 0.500 \\ \hline
+%			\textbf{C = 5}       & 0.038 & 0 & 0.018 & 0.031 & 0 & 0 & 0.320 & 0.100 & 0.409 & 0.316 & 0.175 & 0.052 & 0.509 & 0.460 & 0.500 & 0.504 & 0.492 & 0.494 \\ \hline
+%			\textbf{C = 7}       & 0.040 & 0 & 0.041 & 0.032 & 0 & 0 & 0.355 & 0.135 & 0.444 & 0.359 & 0.195 & 0.035 & 0.507 & 0.500 & 0.500 & 0.507 & 0.500 & 0.499 \\ \hline
+%			\textbf{Balanced}    & 0.051 & 0 & 0.044 & 0.042 & 0 & 0 & 0.638 & 0.176 & 0.838 & 0.616 & 0.444 & 0.128 & 0.998 & 0.952 & 0.999 & 0.996 & 0.995 & 0.995 \\ \hline
+%			\textbf{Unbalanced}  & 0.024 & 0 & 0.008 & 0.021 & 0.002 & 0 & 0.030 & 0 & 0.005 & 0.023 & 0.001 & 0 & 0.020 & 0 & 0.002 & 0.019 & 0.002 & 0 \\ \hline
+%			\textbf{J = 12}      & 0.052 & 0 & 0.028 & 0.038 & 0.002 & 0 & 0.280 & 0.033 & 0.367 & 0.263 & 0.141 & 0.042 & 0.512 & 0.452 & 0.501 & 0.512 & 0.497 & 0.495 \\ \hline
+%			\textbf{J = 24}      & 0.023 & 0 & 0.025 & 0.025 & 0 & 0 & 0.388 & 0.142 & 0.476 & 0.376 & 0.304 & 0.086 & 0.505 & 0.500 & 0.500 & 0.502 & 0.500 & 0.500 \\ \hline
+%		\end{tabular}%
+%	}
+%	\begin{tablenotes}[flushleft]
+%		\small
+%		\item 	Note. CHull = convex hull based on the Common Part Accounted For (CAF) index; BIC = Bayesian Information Criterion; PA = parallel analysis.
+%	\end{tablenotes}
+%\end{table}
+
+
+The TPR results for the different model selection criteria in the small, medium and large ARS conditions largely overlapped between unidimensional and multidimensional scales. Hence, we only report the multidimensional scale results in Table \ref{S2MODSELECTMAINBAL} and Table \ref{S2MODSELECTMAINUNBAL} for balanced and unbalanced scales, respectively\footnote{The complete results, including those for unidimensional scales,  can be found in the appendix in Table \ref{S1MODSELECTMAIN} to \ref{tab:S2largeARSMod}.}. Overall, the performance of the model selection criteria was mostly affected by the type of scale (i.e., balanced and unbalanced) and the strength of the ARS. The ARS factor was almost never retained in the conditions with unbalanced scales as indicated by the close-to-zero TPRs. \label{refpage:R2Mj2a}\linelabel{refline:R2Mj2a}\textcolor{blue}{These results align and generalize those that \citet{ferrando2010acquiescence} derived analytically based on the unrestricted FA model proposed by \citep{ferrando2003unrestricted} who indicated that, for unidimensional unbalanced scales, the fit of a unidimensional model (i.e., without the additional ARS factor) would generally be acceptable since the content factor loadings absorb the ARS factor loadings. Our results extend this to multidimensional unbalanced scales, where the additional ARS factor is absorbed by the cross-loadings on content factors, and thus difficult to distinguish in the model selection step.} For balanced scales, the additional ARS factor was mostly selected in the conditions with medium and large ARS, where both Pearson-based PA and CHull were equally sensitive or more sensitive than the BIC to this additional factor\footnote{Note that, for the CHull, we visually inspected the cases where a solution could not be selected because the hull contained only two points. This happened in around 25\% of the cases for the conditions with large ARS and balanced scales, and it was due to a slight decrease in the CAF index in the model with four factors in comparison to the three-factor model, which, thus, was not included in the hull. Visual inspection of these cases showed that the elbow was clearly visible for the model with three factors, and thus we regarded these cases as having selected the correct number of factors.}. %That is, in the conditions with small ARS, the model selection criteria rarely selected the additional ARS factor with the exception of Pearson-based PA that reached a TPR = .105 at most. 
+However, polychoric-based PA rarely suggested to retain the additional ARS factor in the low and medium ARS conditions, which is in line with previous research that showed that polychoric-based PA generally underestimates the number of dimensions \citep{cho2009accuracy}.  %The main reason is that polychoric correlations 
+ %The main reason is that polychoric correlations are commonly higher than the corresponding Pearson correlations, and this causes the eigenvalues of the first variables to be larger, whereas the remaining ones are smaller. %CHull approach generally outperformed PA and BIC in the conditions with small sample size and items with 5 or 7 categories while, for items with 3 categories and small sample size, the BIC outperformed the other approaches.
+
+
+
+%Overall, the model selection criteria rarely or never selected a two-factor model, especially for unbalanced scales.
+%For balanced scales, PA seemed to capture the ARS dimension more than BIC and CHull in the conditions with large sample size reaching, in the best case, a TPR = .230. However, if polychoric correlations were used to conduct PA, a two-factor solution was never suggested. Moreover, both BIC and CHull (almost) never suggested to retain two factors.
+%For medium ARS, the results of the TPR using balanced and unbalanced scales are displayed in Table~\ref{tab:S1MedARSMod}. 
+%Similarly to the conditions with small ARS, the type of scale (i.e., balanced or unbalanced) heavily affected the performance of the model selection criteria. For balanced scales, the TPR of PA, CHull and BIC increased compared to the small ARS conditions, especially with large sample size and large number of items. In detail, PA outperformed both CHull and BIC when using Pearson correlations; for polychoric correlations, however, the CHull approach generally outperformed PA and BIC in the conditions with small sample size and items with 5 or 7 categories while, for items with 3 categories and small sample size, the BIC outperformed the other approaches. For unbalanced scales, the considered approaches rarely selected the two-factor model. The latter could be due difficulty in differentiating between a one-factor and a two-factor model where all items load positively on the factor(s).  
+%For large ARS, the results of the TPR using balanced and unbalanced scales are displayed in Table~\ref{tab:S1MedARSMod}. In general, in the conditions with balanced scales, the different model selection criteria suggested to retain two factors to a greater extent compared to the small and medium ARS conditions. In detail, PA performed as well as or better than CHull and BIC for balanced scales. For unbalanced scales, however, none of the considered approaches seemed to capture the ARS factor, which, similarly to the medium ARS condition, could be a result of the equivalence between the one-factor and two-factor model in the case of unbalanced scales.
+
+\subsubsection{Bias with the additional ARS dimension}
+
+\subparagraph{\textbf{3.2.1.2 Factor loadings}} \mbox{}\\
+
+\begin{table}[h]
+	\begin{center}
+		\caption{$RMSE_{loadingsC}$ in unidimensional balanced scales when the ARS factor is extracted in function of the simulated conditions}
+		\label{tab:SmallARSBalMAD}
+\resizebox{\textwidth}{!}{%
+	\begin{tabular}{cccccccccccccccc}
+		\hline
+		&
+		&
+		&
+		\multicolumn{13}{c}{\textbf{Unidimensional balanced scales - $RMSE_{loadingsC}$ with ARS factor}} \\ \hline
+		&
+		&
+		&
+		\multicolumn{6}{c}{\textbf{Pearson}} &
+		&
+		\multicolumn{6}{c}{\textbf{Polychor}} \\ \hline
+		\textbf{} &
+		\textbf{} &
+		\textbf{} &
+		\multicolumn{2}{c}{\textbf{Small ARS}} &
+		\multicolumn{2}{c}{\textbf{Medium ARS}} &
+		\multicolumn{2}{c}{\textbf{Large ARS}} &
+		&
+		\multicolumn{2}{c}{\textbf{Small ARS}} &
+		\multicolumn{2}{c}{\textbf{Medium ARS}} &
+		\multicolumn{2}{c}{\textbf{Large ARS}} \\ \hline
+		\textbf{N} &
+		\textbf{J} &
+		\textbf{C} &
+		\textbf{Oblimin} &
+		\textbf{FST} &
+		\textbf{Oblimin} &
+		\textbf{FST} &
+		\textbf{Oblimin} &
+		\textbf{FST} &
+		&
+		\textbf{Oblimin} &
+		\textbf{FST} &
+		\textbf{Oblimin} &
+		\textbf{FST} &
+		\textbf{Oblimin} &
+		\textbf{FST} \\ \hline
+		\multirow{6}{*}{\textbf{250}} &
+		\multirow{3}{*}{\textbf{12}} &
+		\textbf{3} &
+		0.178 &
+		0.035 &
+		0.176 &
+		0.036 &
+		0.219 &
+		0.032 &
+		&
+		0.148 &
+		0.024 &
+		0.147 &
+		0.026 &
+		0.170 &
+		0.032 \\ \cline{3-16} 
+		&
+		&
+		\textbf{5} &
+		0.148 &
+		0.019 &
+		0.181 &
+		0.026 &
+		0.226 &
+		0.080 &
+		&
+		0.134 &
+		0.011 &
+		0.163 &
+		0.007 &
+		0.209 &
+		0.053 \\ \cline{3-16} 
+		&
+		&
+		\textbf{7} &
+		0.167 &
+		0.023 &
+		0.183 &
+		0.020 &
+		0.235 &
+		0.051 &
+		&
+		0.155 &
+		0.011 &
+		0.179 &
+		0.011 &
+		0.232 &
+		0.040 \\ \cline{2-16} 
+		&
+		\multirow{3}{*}{\textbf{24}} &
+		\textbf{3} &
+		0.175 &
+		0.051 &
+		0.194 &
+		0.023 &
+		0.234 &
+		0.078 &
+		&
+		0.120 &
+		0.014 &
+		0.153 &
+		0.042 &
+		0.206 &
+		0.022 \\ \cline{3-16} 
+		&
+		&
+		\textbf{5} &
+		0.161 &
+		0.028 &
+		0.200 &
+		0.016 &
+		0.227 &
+		0.063 &
+		&
+		0.135 &
+		0.007 &
+		0.181 &
+		0.018 &
+		0.208 &
+		0.037 \\ \cline{3-16} 
+		&
+		&
+		\textbf{7} &
+		0.157 &
+		0.035 &
+		0.226 &
+		0.055 &
+		0.218 &
+		0.058 &
+		&
+		0.146 &
+		0.023 &
+		0.218 &
+		0.042 &
+		0.210 &
+		0.046 \\ \hline
+		\multirow{6}{*}{\textbf{500}} &
+		\multirow{3}{*}{\textbf{12}} &
+		\textbf{3} &
+		0.176 &
+		0.065 &
+		0.226 &
+		0.065 &
+		0.241 &
+		0.080 &
+		&
+		0.141 &
+		0.012 &
+		0.199 &
+		0.011 &
+		0.214 &
+		0.024 \\ \cline{3-16} 
+		&
+		&
+		\textbf{5} &
+		0.174 &
+		0.024 &
+		0.219 &
+		0.056 &
+		0.268 &
+		0.036 &
+		&
+		0.151 &
+		0.007 &
+		0.202 &
+		0.030 &
+		0.232 &
+		0.010 \\ \cline{3-16} 
+		&
+		&
+		\textbf{7} &
+		0.165 &
+		0.037 &
+		0.217 &
+		0.030 &
+		0.284 &
+		0.044 &
+		&
+		0.162 &
+		0.024 &
+		0.208 &
+		0.017 &
+		0.275 &
+		0.032 \\ \cline{2-16} 
+		&
+		\multirow{3}{*}{\textbf{24}} &
+		\textbf{3} &
+		0.177 &
+		0.050 &
+		0.265 &
+		0.067 &
+		0.234 &
+		0.051 &
+		&
+		0.124 &
+		0.011 &
+		0.242 &
+		0.015 &
+		0.200 &
+		0.011 \\ \cline{3-16} 
+		&
+		&
+		\textbf{5} &
+		0.174 &
+		0.039 &
+		0.295 &
+		0.039 &
+		0.295 &
+		0.049 &
+		&
+		0.149 &
+		0.014 &
+		0.283 &
+		0.016 &
+		0.305 &
+		0.023 \\ \cline{3-16} 
+		&
+		&
+		\textbf{7} &
+		0.184 &
+		0.042 &
+		0.242 &
+		0.041 &
+		0.270 &
+		0.026 &
+		&
+		0.178 &
+		0.030 &
+		0.237 &
+		0.029 &
+		0.270 &
+		0.014 \\ \hline
+		\multicolumn{1}{l}{} &
+		\multicolumn{1}{l}{} &
+		\multicolumn{1}{l}{} &
+		&
+		&
+		&
+		&
+		&
+		&
+		&
+		&
+		&
+		&
+		&
+		&
+		
+	\end{tabular}%
+}
+ \begin{tablenotes}[flushleft]
+	\small
+	\item 	Note. FST = fully-specified target.
+\end{tablenotes}
+	\end{center}
+\end{table}
+
+\begin{table}[]
+	\begin{center}
+		\caption{$RMSE_{loadingsC}$ in multidimensional balanced scales when the ARS factor is extracted in function of the simulated conditions}
+		\label{tab:SmallARSBalMAD2}		
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{cccccccccccccccccccccccccc}
+				\hline
+				&
+				&
+				&
+				\multicolumn{23}{c}{\textbf{Multidimensional balanced scales - $RMSE_{loadingsC}$ with ARS factor}} \\ \hline
+				&
+				&
+				&
+				\multicolumn{11}{c}{\textbf{Pearson}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{11}{c}{\textbf{Polychoric}} \\ \hline
+				\textbf{} &
+				\textbf{} &
+				\textbf{} &
+				\multicolumn{3}{c}{\textbf{Small ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Medium ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Large ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Small ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Medium ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Large ARS}} \\ \hline
+				\textbf{N} &
+				\textbf{J} &
+				\textbf{C} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} \\ \hline
+				\multirow{6}{*}{\textbf{250}} &
+				\multirow{3}{*}{\textbf{12}} &
+				\textbf{3} &
+				0.081 &
+				0.016 &
+				0.052 &
+				&
+				0.095 &
+				0.021 &
+				0.043 &
+				&
+				0.132 &
+				0.034 &
+				0.040 &
+				&
+				0.046 &
+				0.041 &
+				0.015 &
+				&
+				0.066 &
+				0.032 &
+				0.010 &
+				&
+				0.110 &
+				0.014 &
+				0.010 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.065 &
+				0.023 &
+				0.029 &
+				&
+				0.086 &
+				0.039 &
+				0.040 &
+				&
+				0.142 &
+				0.043 &
+				0.045 &
+				&
+				0.049 &
+				0.027 &
+				0.013 &
+				&
+				0.075 &
+				0.035 &
+				0.025 &
+				&
+				0.134 &
+				0.026 &
+				0.026 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.064 &
+				0.015 &
+				0.033 &
+				&
+				0.084 &
+				0.033 &
+				0.024 &
+				&
+				0.149 &
+				0.026 &
+				0.023 &
+				&
+				0.057 &
+				0.019 &
+				0.025 &
+				&
+				0.076 &
+				0.031 &
+				0.016 &
+				&
+				0.154 &
+				0.020 &
+				0.014 \\ \cline{2-26} 
+				&
+				\multirow{3}{*}{\textbf{24}} &
+				\textbf{3} &
+				0.070 &
+				0.036 &
+				0.050 &
+				&
+				0.088 &
+				0.037 &
+				0.043 &
+				&
+				0.153 &
+				0.059 &
+				0.058 &
+				&
+				0.037 &
+				0.013 &
+				0.013 &
+				&
+				0.053 &
+				0.026 &
+				0.006 &
+				&
+				0.131 &
+				0.024 &
+				0.021 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.052 &
+				0.023 &
+				0.035 &
+				&
+				0.067 &
+				0.021 &
+				0.026 &
+				&
+				0.163 &
+				0.046 &
+				0.044 &
+				&
+				0.035 &
+				0.014 &
+				0.018 &
+				&
+				0.051 &
+				0.012 &
+				0.008 &
+				&
+				0.160 &
+				0.029 &
+				0.025 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.047 &
+				0.027 &
+				0.032 &
+				&
+				0.076 &
+				0.027 &
+				0.031 &
+				&
+				0.151 &
+				0.038 &
+				0.038 &
+				&
+				0.040 &
+				0.024 &
+				0.024 &
+				&
+				0.069 &
+				0.021 &
+				0.023 &
+				&
+				0.147 &
+				0.031 &
+				0.030 \\ \hline
+				\multirow{6}{*}{\textbf{500}} &
+				\multirow{3}{*}{\textbf{12}} &
+				\textbf{3} &
+				0.087 &
+				0.036 &
+				0.062 &
+				&
+				0.101 &
+				0.042 &
+				0.047 &
+				&
+				0.150 &
+				0.061 &
+				0.062 &
+				&
+				0.055 &
+				0.011 &
+				0.024 &
+				&
+				0.076 &
+				0.048 &
+				0.007 &
+				&
+				0.133 &
+				0.022 &
+				0.023 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.053 &
+				0.026 &
+				0.026 &
+				&
+				0.083 &
+				0.033 &
+				0.041 &
+				&
+				0.122 &
+				0.035 &
+				0.034 &
+				&
+				0.038 &
+				0.023 &
+				0.009 &
+				&
+				0.065 &
+				0.019 &
+				0.022 &
+				&
+				0.113 &
+				0.018 &
+				0.014 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.049 &
+				0.011 &
+				0.023 &
+				&
+				0.084 &
+				0.034 &
+				0.030 &
+				&
+				0.128 &
+				0.033 &
+				0.034 &
+				&
+				0.042 &
+				0.011 &
+				0.014 &
+				&
+				0.077 &
+				0.033 &
+				0.022 &
+				&
+				0.119 &
+				0.025 &
+				0.026 \\ \cline{2-26} 
+				&
+				\multirow{3}{*}{\textbf{24}} &
+				\textbf{3} &
+				0.056 &
+				0.039 &
+				0.044 &
+				&
+				0.093 &
+				0.050 &
+				0.053 &
+				&
+				0.137 &
+				0.045 &
+				0.044 &
+				&
+				0.020 &
+				0.013 &
+				0.006 &
+				&
+				0.064 &
+				0.021 &
+				0.014 &
+				&
+				0.122 &
+				0.016 &
+				0.006 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.038 &
+				0.027 &
+				0.029 &
+				&
+				0.070 &
+				0.024 &
+				0.025 &
+				&
+				0.128 &
+				0.033 &
+				0.032 &
+				&
+				0.020 &
+				0.012 &
+				0.011 &
+				&
+				0.055 &
+				0.017 &
+				0.006 &
+				&
+				0.123 &
+				0.016 &
+				0.013 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.037 &
+				0.026 &
+				0.029 &
+				&
+				0.072 &
+				0.029 &
+				0.032 &
+				&
+				0.146 &
+				0.027 &
+				0.027 &
+				&
+				0.030 &
+				0.018 &
+				0.021 &
+				&
+				0.065 &
+				0.021 &
+				0.024 &
+				&
+				0.142 &
+				0.019 &
+				0.019 \\ \hline
+			\end{tabular}%
+		}
+		\begin{tablenotes}[flushleft]
+			\small
+			\item 	Note. FST = fully-specified target; SST = semi-specified target.
+		\end{tablenotes}
+	\end{center}
+\end{table}
+
+
+%Combined paragraph
+The $RMSE_{loadingsC}$ results using balanced scales are displayed in Table~\ref{tab:SmallARSBalMAD} and Table~\ref{tab:SmallARSBalMAD2} for unidimensional and multidimensional scales, respectively\footnote{Note that since the additional ARS factor was (almost) never selected for unbalanced scales we reported the $RMSE_{loadingsC}$ results for those conditions in the Appendix in Tables \ref{tab:S1UnbalancedRMSEloadC} - \ref{tab:S2UnbalancedRMSEloadC}. In addition, we also reported the $RMSE_{loadingsARS}$ results for both balanced and unbalanced scales in the Appendix in Tables \ref{tab:S1LOADARSBalanced} - \ref{tab:S2LOADARSUnbalanced}}. \textcolor{black}{FST rotation, for unidimensional scales, and both FST and SST rotation, for multidimensional scales, outperformed oblimin and resulted in an $RMSE_{loadingsC}$ that was always $<$.1, and even lower for EFA based on polychoric correlations.} Oblimin rotation often resulted in highly biased loadings, especially in the case of unidimensional scales, where an $RMSE_{loadingsC}$ $\approx$ .2 was often observed. Note that this result is not particularly surprising since uninformed rotation approaches are known to perform sub-optimally when simple structure is violated (\citealp{lorenzo1999promin}, \citealp{ferrando2000unrestricted}; \citealp{schmitt2011rotation}). 
+
+%Maybe keep?
+%\textcolor{red}{Additionally, for unbalanced scales, loadings recovery was especially difficult for FST, which may be due to the difficulties in distinguishing between the content ant the ARS factors. Oblimin and SST, on the contrary, performed better than FST, especially in the conditions with two content factors. For oblimin, this is due to the fact that, similarly to what happened in the example discussed in Section 2.2.1, oblimin tries to separate the positive and negative pole of the content factor, whereas in the unbalanced case this cannot happen and it pursues simple structure by reducing all (or most) loadings on the ARS factor to 0.}
+\begin{table}[t!]
+	\caption{Main effects on MMAB for zero loadings in multidimensional balanced scales when the ARS factor is extracted in function of the simulated conditions}
+	\label{tab:S2MMAB0withARS}
+	%	\begin{adjustbox}{angle = 90}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{ccccccccccccccccccc}
+			\hline
+			\multicolumn{1}{l}{} & \multicolumn{18}{c}{\textbf{Multidimensional balanced scales - MMAB with ARS factor}}                    \\ \hline
+			\multicolumn{1}{l}{} & \multicolumn{6}{c}{\textbf{Small ARS}}        & \multicolumn{6}{c}{\textbf{Medium ARS}}       & \multicolumn{6}{c}{\textbf{Large ARS}}        \\ \hline
+			\multicolumn{1}{l}{} &
+			\multicolumn{3}{c}{\textbf{Pearson}} &
+			\multicolumn{3}{c}{\textbf{Polychoric}} &
+			\multicolumn{3}{c}{\textbf{Pearson}} &
+			\multicolumn{3}{c}{\textbf{Polychoric}} &
+			\multicolumn{3}{c}{\textbf{Pearson}} &
+			\multicolumn{3}{c}{\textbf{Polychoric}} \\ \hline
+			\multicolumn{1}{l}{} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} \\ \hline
+			\textbf{N = 250}     & 0.182 & 0.150 & 0.121 & 0.192 & 0.158 & 0.131 & 0.225 & 0.169 & 0.121 & 0.243 & 0.188 & 0.131 & 0.372 & 0.146 & 0.117 & 0.403 & 0.148 & 0.126 \\ \hline
+			\textbf{N = 500}     & 0.123 & 0.104 & 0.087 & 0.134 & 0.108 & 0.093 & 0.194 & 0.120 & 0.085 & 0.208 & 0.133 & 0.091 & 0.324 & 0.099 & 0.082 & 0.345 & 0.103 & 0.088 \\ \hline
+			\textbf{C = 3}       & 0.160 & 0.131 & 0.109 & 0.179 & 0.143 & 0.122 & 0.214 & 0.142 & 0.105 & 0.242 & 0.175 & 0.119 & 0.336 & 0.132 & 0.104 & 0.381 & 0.137 & 0.118 \\ \hline
+			\textbf{C = 5}       & 0.149 & 0.129 & 0.102 & 0.157 & 0.131 & 0.110 & 0.201 & 0.140 & 0.102 & 0.214 & 0.152 & 0.109 & 0.338 & 0.124 & 0.100 & 0.361 & 0.126 & 0.105 \\ \hline
+			\textbf{C = 7}       & 0.148 & 0.122 & 0.101 & 0.152 & 0.125 & 0.104 & 0.213 & 0.152 & 0.102 & 0.220 & 0.155 & 0.105 & 0.370 & 0.111 & 0.096 & 0.381 & 0.114 & 0.098 \\ \hline
+			\textbf{J = 12}      & 0.158 & 0.125 & 0.095 & 0.169 & 0.129 & 0.102 & 0.210 & 0.156 & 0.096 & 0.227 & 0.174 & 0.105 & 0.335 & 0.125 & 0.091 & 0.360 & 0.123 & 0.098 \\ \hline
+			\textbf{J = 24}      & 0.147 & 0.130 & 0.113 & 0.157 & 0.137 & 0.122 & 0.208 & 0.133 & 0.109 & 0.224 & 0.147 & 0.117 & 0.361 & 0.120 & 0.108 & 0.389 & 0.128 & 0.117 \\ \hline
+		\end{tabular}%
+	}
+	\begin{tablenotes}[flushleft]
+		\small
+		\item 	Note. FST = fully-specified target; SST = semi-specified target.
+	\end{tablenotes}
+\end{table}
+
+For multidimensional balanced scales, Table \ref{tab:S2MMAB0withARS} displays the MMAB results for the zero loadings when the ARS factor is extracted\footnote{The results for unbalanced scales are displayed in Table \ref{tab:S2MMAB_0withARS} in the Appendix.}. The MMAB was below .2 for informed rotation approaches, but not for oblimin rotation, for which MMAB was often > .2 in conditions with medium ARS and always $>$ .3 in conditions with large ARS, and thus is larger than the commonly used cut-off of .2 for \textquotedblleft non-ignorable\textquotedblright \,  cross-loadings \citep{stevens1992applied}. 
+%Maybe keep?
+%\textcolor{red}{Differently, in unbalanced scales, the MMAB was $<$ .2 for oblimin rotation and SST, but not for FST, which often resulted in a MMAB $>$ .3, especially for small ARS.}
+
+
+\subparagraph{\textbf{3.2.2.2 Factor Correlations}} \mbox{}\\
+
+\begin{table}[]
+	\begin{center}
+		\caption{Main effects on $RMSE_{FactorCorr}$ in function of the strength of the ARS and the simulated conditions when ARS is extracted in balanced scales}
+		\label{tab:FACorr_SmallARSBalMADS2}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{ccccccccccccccccccc}
+				\hline
+				\multicolumn{1}{l}{} & \multicolumn{18}{c}{\textbf{$RMSE_{FactorCorr}$ with ARS factor}}                                                                             \\ \hline
+				\multicolumn{1}{l}{} & \multicolumn{6}{c}{\textbf{Small ARS}}        & \multicolumn{6}{c}{\textbf{Medium ARS}}       & \multicolumn{6}{c}{\textbf{Large ARS}}        \\ \hline
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Pearson}} &
+				\multicolumn{3}{c}{\textbf{Polychoric}} &
+				\multicolumn{3}{c}{\textbf{Pearson}} &
+				\multicolumn{3}{c}{\textbf{Polychoric}} &
+				\multicolumn{3}{c}{\textbf{Pearson}} &
+				\multicolumn{3}{c}{\textbf{Polychoric}} \\ \hline
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} \\ \hline
+				\textbf{N = 250}     & 0.008 & 0.018 & 0.019 & 0.011 & 0.011 & 0.019 & 0.009 & 0.023 & 0.039 & 0.010 & 0.014 & 0.041 & 0.012 & 0.008 & 0.047 & 0.013 & 0.004 & 0.045 \\ \hline
+				\textbf{N = 500}     & 0.010 & 0.018 & 0.019 & 0.011 & 0.006 & 0.020 & 0.008 & 0.007 & 0.020 & 0.008 & 0.004 & 0.019 & 0.006 & 0.004 & 0.032 & 0.005 & 0.001 & 0.030 \\ \hline
+				\textbf{C = 3}       & 0.007 & 0.019 & 0.012 & 0.008 & 0.010 & 0.012 & 0.006 & 0.013 & 0.026 & 0.009 & 0.008 & 0.026 & 0.008 & 0.007 & 0.044 & 0.009 & 0.002 & 0.043 \\ \hline
+				\textbf{C = 5}       & 0.008 & 0.026 & 0.028 & 0.017 & 0.008 & 0.029 & 0.007 & 0.020 & 0.032 & 0.008 & 0.012 & 0.034 & 0.011 & 0.008 & 0.040 & 0.011 & 0.004 & 0.039 \\ \hline
+				\textbf{C = 7}       & 0.011 & 0.010 & 0.015 & 0.008 & 0.007 & 0.016 & 0.012 & 0.012 & 0.030 & 0.012 & 0.008 & 0.030 & 0.009 & 0.003 & 0.034 & 0.007 & 0.002 & 0.032 \\ \hline
+				\textbf{J = 12}      & 0.013 & 0.015 & 0.022 & 0.018 & 0.009 & 0.022 & 0.012 & 0.021 & 0.038 & 0.015 & 0.014 & 0.040 & 0.008 & 0.005 & 0.040 & 0.006 & 0.003 & 0.037 \\ \hline
+				\textbf{J = 24}      & 0.004 & 0.020 & 0.015 & 0.004 & 0.008 & 0.016 & 0.005 & 0.009 & 0.020 & 0.003 & 0.004 & 0.020 & 0.010 & 0.006 & 0.039 & 0.012 & 0.002 & 0.038 \\ \hline
+			\end{tabular}%
+		}		\begin{tablenotes}[flushleft]
+			\small
+			\item 	Note. FST = fully-specified target; SST = semi-specified target.
+		\end{tablenotes}
+	\end{center}
+\end{table} 
+
+
+The $RMSE_{FactorCorr}$ results for balanced scales are displayed in Table~\ref{tab:FACorr_SmallARSBalMADS2} \footnote{
+The $RMSE_{FactorCorr}$ for unbalanced scales are displayed in Table~\ref{tab:FACorr_SmallARSUnBalMADS2tet}}. The $RMSE_{FactorCorr}$  was $<$ .1 for all rotation approaches in all simulated conditions, which indicates that extracting an additional ARS factor did not seem to impact the factor correlation regardless of the type of rotation.
+
+
+%SST in all conditions, whereas FST had a $RMSE_{FactorCorr}$ $>$ .1 only in the conditions with small ARS and unbalanced scales when using Pearson correlations. Additionally, when large ARS was simulated, factor correlations using oblimin rotation resulted in an $RMSE_{FactorCorr}$ of .204 and .207 for Pearson and polychoric correlations, respectively.
+% but also since, as noted before, in balanced scales, oblimin rotation tends to separate the positive and negative poles of the content factor, which heavily affects its performance in terms of loadings recovery compared to the unbalanced scales conditions.
+
+
+\subsubsection{Bias without the additional ARS dimension}
+
+\subparagraph{\textbf{3.2.3.1 Factor loadings}} \mbox{}\\
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[h]
+	\begin{center}
+		\caption{$RMSE_{loadingsC}$ in unidimensional scales when the ARS factor is not extracted in function of the simulated conditions}
+		\label{tab:S1WithoutARSBala}
+\resizebox{\textwidth}{!}{%
+	\begin{tabular}{cccllllllcllllll}
+		\hline
+		&
+		&
+		&
+		\multicolumn{13}{c}{\textbf{Unidimensional scales - $RMSE_{loadingsC}$ without ARS factor}} \\ \hline
+		&
+		&
+		&
+		\multicolumn{6}{c}{\textbf{Balanced scales}} &
+		&
+		\multicolumn{6}{c}{\textbf{Unbalanced scales}} \\ \hline
+		\textbf{} &
+		\textbf{} &
+		\textbf{} &
+		\multicolumn{2}{c}{\textbf{Small ARS}} &
+		\multicolumn{2}{c}{\textbf{Medium ARS}} &
+		\multicolumn{2}{c}{\textbf{Large ARS}} &
+		&
+		\multicolumn{2}{c}{\textbf{Small ARS}} &
+		\multicolumn{2}{c}{\textbf{Medium ARS}} &
+		\multicolumn{2}{c}{\textbf{Large ARS}} \\ \hline
+		\textbf{N} &
+		\textbf{J} &
+		\textbf{C} &
+		\multicolumn{1}{c}{\textbf{Pearson}} &
+		\multicolumn{1}{c}{\textbf{Polychoric}} &
+		\multicolumn{1}{c}{\textbf{Pearson}} &
+		\multicolumn{1}{c}{\textbf{Polychoric}} &
+		\multicolumn{1}{c}{\textbf{Pearson}} &
+		\multicolumn{1}{c}{\textbf{Polychoric}} &
+		&
+		\multicolumn{1}{c}{\textbf{Pearson}} &
+		\multicolumn{1}{c}{\textbf{Polychoric}} &
+		\multicolumn{1}{c}{\textbf{Pearson}} &
+		\multicolumn{1}{c}{\textbf{Polychoric}} &
+		\multicolumn{1}{c}{\textbf{Pearson}} &
+		\multicolumn{1}{c}{\textbf{Polychoric}} \\ \hline
+		\multirow{6}{*}{\textbf{250}} &
+		\multirow{3}{*}{\textbf{12}} &
+		\textbf{3} &
+		0.043 &
+		0.015 &
+		0.043 &
+		0.018 &
+		0.042 &
+		0.025 &
+		&
+		0.045 &
+		0.019 &
+		0.063 &
+		0.008 &
+		0.034 &
+		0.037 \\ \cline{3-16} 
+		&
+		&
+		\textbf{5} &
+		0.028 &
+		0.006 &
+		0.033 &
+		0.007 &
+		0.091 &
+		0.065 &
+		&
+		0.032 &
+		0.009 &
+		0.021 &
+		0.015 &
+		0.009 &
+		0.031 \\ \cline{3-16} 
+		&
+		&
+		\textbf{7} &
+		0.030 &
+		0.018 &
+		0.026 &
+		0.016 &
+		0.069 &
+		0.066 &
+		&
+		0.016 &
+		0.006 &
+		0.023 &
+		0.010 &
+		0.021 &
+		0.035 \\ \cline{2-16} 
+		&
+		\multirow{3}{*}{\textbf{24}} &
+		\textbf{3} &
+		0.054 &
+		0.012 &
+		0.025 &
+		0.040 &
+		0.083 &
+		0.029 &
+		&
+		0.042 &
+		0.020 &
+		0.044 &
+		0.019 &
+		0.016 &
+		0.054 \\ \cline{3-16} 
+		&
+		&
+		\textbf{5} &
+		0.031 &
+		0.007 &
+		0.018 &
+		0.016 &
+		0.068 &
+		0.042 &
+		&
+		0.043 &
+		0.017 &
+		0.030 &
+		0.004 &
+		0.025 &
+		0.057 \\ \cline{3-16} 
+		&
+		&
+		\textbf{7} &
+		0.038 &
+		0.026 &
+		0.057 &
+		0.045 &
+		0.063 &
+		0.051 &
+		&
+		0.052 &
+		0.039 &
+		0.022 &
+		0.010 &
+		0.043 &
+		0.058 \\ \hline
+		\multirow{6}{*}{\textbf{500}} &
+		\multirow{3}{*}{\textbf{12}} &
+		\textbf{3} &
+		0.071 &
+		0.017 &
+		0.070 &
+		0.016 &
+		0.087 &
+		0.032 &
+		&
+		0.044 &
+		0.017 &
+		0.042 &
+		0.020 &
+		0.013 &
+		0.056 \\ \cline{3-16} 
+		&
+		&
+		\textbf{5} &
+		0.029 &
+		0.006 &
+		0.060 &
+		0.035 &
+		0.048 &
+		0.021 &
+		&
+		0.026 &
+		0.005 &
+		0.010 &
+		0.036 &
+		0.016 &
+		0.046 \\ \cline{3-16} 
+		&
+		&
+		\textbf{7} &
+		0.042 &
+		0.029 &
+		0.034 &
+		0.021 &
+		0.058 &
+		0.047 &
+		&
+		0.004 &
+		0.016 &
+		0.015 &
+		0.004 &
+		0.014 &
+		0.028 \\ \cline{2-16} 
+		&
+		\multirow{3}{*}{\textbf{24}} &
+		\textbf{3} &
+		0.051 &
+		0.009 &
+		0.070 &
+		0.019 &
+		0.054 &
+		0.010 &
+		&
+		0.035 &
+		0.026 &
+		0.024 &
+		0.041 &
+		0.017 &
+		0.053 \\ \cline{3-16} 
+		&
+		&
+		\textbf{5} &
+		0.041 &
+		0.016 &
+		0.043 &
+		0.021 &
+		0.055 &
+		0.033 &
+		&
+		0.028 &
+		0.005 &
+		0.015 &
+		0.014 &
+		0.010 &
+		0.031 \\ \cline{3-16} 
+		&
+		&
+		\textbf{7} &
+		0.044 &
+		0.031 &
+		0.043 &
+		0.031 &
+		0.032 &
+		0.022 &
+		&
+		0.032 &
+		0.019 &
+		0.003 &
+		0.013 &
+		0.014 &
+		0.028 \\ \hline
+		\multicolumn{1}{l}{} &
+		\multicolumn{1}{l}{} &
+		\multicolumn{1}{l}{} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{} &
+		&
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{} &
+		\multicolumn{1}{c}{}
+	\end{tabular}%
+}	\end{center}
+\end{table}
+
+\begin{table}[]
+	\begin{center}
+		\caption{$RMSE_{loadingsC}$ in multidimensional balanced scales when the ARS factor is not extracted in function of the simulated conditions}
+		\label{tab:S2WithoutARSSmall}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{cccccccccccccccccccccccccc}
+				\hline
+				&
+				&
+				&
+				\multicolumn{23}{c}{\textbf{$RMSE_{loadingsC}$ with ARS factor}} \\ \hline
+				&
+				&
+				&
+				\multicolumn{11}{c}{\textbf{Pearson}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{11}{c}{\textbf{Polychoric}} \\ \hline
+				\textbf{} &
+				\textbf{} &
+				\textbf{} &
+				\multicolumn{3}{c}{\textbf{Small ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Medium ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Large ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Small ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Medium ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Large ARS}} \\ \hline
+				\textbf{N} &
+				\textbf{J} &
+				\textbf{C} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} \\ \hline
+				\multirow{6}{*}{\textbf{250}} &
+				\multirow{3}{*}{\textbf{12}} &
+				\textbf{3} &
+				0.039 &
+				0.036 &
+				0.037 &
+				&
+				0.046 &
+				0.041 &
+				0.045 &
+				&
+				0.078 &
+				0.054 &
+				0.073 &
+				&
+				0.020 &
+				0.015 &
+				0.015 &
+				&
+				0.022 &
+				0.011 &
+				0.020 &
+				&
+				0.065 &
+				0.037 &
+				0.056 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.025 &
+				0.032 &
+				0.024 &
+				&
+				0.044 &
+				0.053 &
+				0.042 &
+				&
+				0.083 &
+				0.064 &
+				0.077 &
+				&
+				0.016 &
+				0.022 &
+				0.013 &
+				&
+				0.030 &
+				0.042 &
+				0.027 &
+				&
+				0.072 &
+				0.051 &
+				0.064 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.028 &
+				0.025 &
+				0.025 &
+				&
+				0.030 &
+				0.039 &
+				0.029 &
+				&
+				0.097 &
+				0.083 &
+				0.083 &
+				&
+				0.023 &
+				0.020 &
+				0.020 &
+				&
+				0.024 &
+				0.034 &
+				0.024 &
+				&
+				0.098 &
+				0.084 &
+				0.079 \\ \cline{2-26} 
+				&
+				\multirow{3}{*}{\textbf{24}} &
+				\textbf{3} &
+				0.046 &
+				0.045 &
+				0.045 &
+				&
+				0.045 &
+				0.044 &
+				0.045 &
+				&
+				0.089 &
+				0.078 &
+				0.090 &
+				&
+				0.014 &
+				0.011 &
+				0.011 &
+				&
+				0.019 &
+				0.016 &
+				0.016 &
+				&
+				0.070 &
+				0.063 &
+				0.069 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.031 &
+				0.031 &
+				0.030 &
+				&
+				0.028 &
+				0.026 &
+				0.027 &
+				&
+				0.085 &
+				0.080 &
+				0.084 &
+				&
+				0.016 &
+				0.017 &
+				0.014 &
+				&
+				0.015 &
+				0.009 &
+				0.010 &
+				&
+				0.084 &
+				0.081 &
+				0.082 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.029 &
+				0.031 &
+				0.029 &
+				&
+				0.034 &
+				0.033 &
+				0.033 &
+				&
+				0.088 &
+				0.076 &
+				0.085 &
+				&
+				0.023 &
+				0.026 &
+				0.023 &
+				&
+				0.028 &
+				0.026 &
+				0.027 &
+				&
+				0.089 &
+				0.078 &
+				0.086 \\ \hline
+				\multirow{6}{*}{\textbf{500}} &
+				\multirow{3}{*}{\textbf{12}} &
+				\textbf{3} &
+				0.053 &
+				0.052 &
+				0.053 &
+				&
+				0.055 &
+				0.053 &
+				0.054 &
+				&
+				0.095 &
+				0.080 &
+				0.093 &
+				&
+				0.018 &
+				0.014 &
+				0.015 &
+				&
+				0.029 &
+				0.026 &
+				0.026 &
+				&
+				0.073 &
+				0.047 &
+				0.066 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.022 &
+				0.032 &
+				0.021 &
+				&
+				0.045 &
+				0.043 &
+				0.044 &
+				&
+				0.064 &
+				0.058 &
+				0.063 &
+				&
+				0.009 &
+				0.021 &
+				0.008 &
+				&
+				0.028 &
+				0.026 &
+				0.027 &
+				&
+				0.058 &
+				0.050 &
+				0.056 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.019 &
+				0.019 &
+				0.018 &
+				&
+				0.039 &
+				0.037 &
+				0.037 &
+				&
+				0.063 &
+				0.047 &
+				0.059 &
+				&
+				0.013 &
+				0.012 &
+				0.011 &
+				&
+				0.033 &
+				0.031 &
+				0.030 &
+				&
+				0.061 &
+				0.041 &
+				0.055 \\ \cline{2-26} 
+				&
+				\multirow{3}{*}{\textbf{24}} &
+				\textbf{3} &
+				0.042 &
+				0.044 &
+				0.042 &
+				&
+				0.055 &
+				0.055 &
+				0.054 &
+				&
+				0.062 &
+				0.062 &
+				0.062 &
+				&
+				0.007 &
+				0.012 &
+				0.006 &
+				&
+				0.020 &
+				0.021 &
+				0.018 &
+				&
+				0.049 &
+				0.048 &
+				0.047 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.028 &
+				0.030 &
+				0.028 &
+				&
+				0.028 &
+				0.027 &
+				0.028 &
+				&
+				0.059 &
+				0.055 &
+				0.053 &
+				&
+				0.011 &
+				0.014 &
+				0.011 &
+				&
+				0.014 &
+				0.012 &
+				0.012 &
+				&
+				0.052 &
+				0.046 &
+				0.042 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.029 &
+				0.029 &
+				0.028 &
+				&
+				0.035 &
+				0.034 &
+				0.034 &
+				&
+				0.070 &
+				0.060 &
+				0.070 &
+				&
+				0.021 &
+				0.021 &
+				0.021 &
+				&
+				0.027 &
+				0.026 &
+				0.026 &
+				&
+				0.076 &
+				0.065 &
+				0.076 \\ \hline
+			\end{tabular}%
+		}
+		\begin{tablenotes}[flushleft]
+			\small
+			\item 	Note. FST = fully-specified target; SST = semi-specified target.
+		\end{tablenotes}
+	\end{center}
+\end{table}
+
+\begin{table}[]
+	\begin{center}
+		\caption{$RMSE_{loadingsC}$ in multidimensional unbalanced scales when the ARS factor is not extracted in function of the simulated conditions}
+		\label{tab:S2WithoutARSMedium}		
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{cccccccccccccccccccccccccc}
+				\hline
+				&
+				&
+				&
+				\multicolumn{23}{c}{\textbf{$RMSE_{loadingsC}$ with ARS factor}} \\ \hline
+				&
+				&
+				&
+				\multicolumn{11}{c}{\textbf{Pearson}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{11}{c}{\textbf{Polychoric}} \\ \hline
+				\textbf{} &
+				\textbf{} &
+				\textbf{} &
+				\multicolumn{3}{c}{\textbf{Small ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Medium ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Large ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Small ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Medium ARS}} &
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Large ARS}} \\ \hline
+				\textbf{N} &
+				\textbf{J} &
+				\textbf{C} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} &
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\multicolumn{1}{l}{\textbf{SST}} \\ \hline
+				\multirow{6}{*}{\textbf{250}} &
+				\multirow{3}{*}{\textbf{12}} &
+				\textbf{3} &
+				0.031 &
+				0.039 &
+				0.031 &
+				&
+				0.035 &
+				0.040 &
+				0.035 &
+				&
+				0.019 &
+				0.060 &
+				0.015 &
+				&
+				0.014 &
+				0.023 &
+				0.014 &
+				&
+				0.015 &
+				0.022 &
+				0.015 &
+				&
+				0.047 &
+				0.051 &
+				0.046 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.011 &
+				0.020 &
+				0.011 &
+				&
+				0.013 &
+				0.044 &
+				0.011 &
+				&
+				0.015 &
+				0.051 &
+				0.014 &
+				&
+				0.014 &
+				0.019 &
+				0.014 &
+				&
+				0.018 &
+				0.037 &
+				0.017 &
+				&
+				0.034 &
+				0.045 &
+				0.034 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.009 &
+				0.015 &
+				0.009 &
+				&
+				0.019 &
+				0.024 &
+				0.019 &
+				&
+				0.030 &
+				0.042 &
+				0.030 &
+				&
+				0.006 &
+				0.012 &
+				0.006 &
+				&
+				0.023 &
+				0.026 &
+				0.023 &
+				&
+				0.040 &
+				0.045 &
+				0.040 \\ \cline{2-26} 
+				&
+				\multirow{3}{*}{\textbf{24}} &
+				\textbf{3} &
+				0.028 &
+				0.029 &
+				0.028 &
+				&
+				0.024 &
+				0.025 &
+				0.024 &
+				&
+				0.019 &
+				0.063 &
+				0.018 &
+				&
+				0.016 &
+				0.017 &
+				0.016 &
+				&
+				0.020 &
+				0.021 &
+				0.020 &
+				&
+				0.048 &
+				0.051 &
+				0.048 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.033 &
+				0.034 &
+				0.033 &
+				&
+				0.012 &
+				0.044 &
+				0.011 &
+				&
+				0.031 &
+				0.041 &
+				0.031 &
+				&
+				0.015 &
+				0.018 &
+				0.015 &
+				&
+				0.021 &
+				0.037 &
+				0.021 &
+				&
+				0.053 &
+				0.053 &
+				0.054 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.035 &
+				0.035 &
+				0.035 &
+				&
+				0.012 &
+				0.020 &
+				0.012 &
+				&
+				0.028 &
+				0.048 &
+				0.028 &
+				&
+				0.027 &
+				0.027 &
+				0.027 &
+				&
+				0.006 &
+				0.016 &
+				0.006 &
+				&
+				0.038 &
+				0.047 &
+				0.039 \\ \hline
+				\multirow{6}{*}{\textbf{500}} &
+				\multirow{3}{*}{\textbf{12}} &
+				\textbf{3} &
+				0.037 &
+				0.038 &
+				0.037 &
+				&
+				0.028 &
+				0.049 &
+				0.027 &
+				&
+				0.016 &
+				0.057 &
+				0.015 &
+				&
+				0.007 &
+				0.010 &
+				0.007 &
+				&
+				0.018 &
+				0.031 &
+				0.018 &
+				&
+				0.033 &
+				0.040 &
+				0.033 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.013 &
+				0.019 &
+				0.013 &
+				&
+				0.010 &
+				0.011 &
+				0.010 &
+				&
+				0.012 &
+				0.046 &
+				0.012 &
+				&
+				0.013 &
+				0.016 &
+				0.013 &
+				&
+				0.024 &
+				0.024 &
+				0.024 &
+				&
+				0.033 &
+				0.041 &
+				0.033 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.004 &
+				0.014 &
+				0.004 &
+				&
+				0.010 &
+				0.022 &
+				0.010 &
+				&
+				0.019 &
+				0.037 &
+				0.019 &
+				&
+				0.011 &
+				0.016 &
+				0.011 &
+				&
+				0.007 &
+				0.019 &
+				0.007 &
+				&
+				0.029 &
+				0.038 &
+				0.029 \\ \cline{2-26} 
+				&
+				\multirow{3}{*}{\textbf{24}} &
+				\textbf{3} &
+				0.025 &
+				0.033 &
+				0.025 &
+				&
+				0.025 &
+				0.035 &
+				0.025 &
+				&
+				0.015 &
+				0.056 &
+				0.014 &
+				&
+				0.025 &
+				0.027 &
+				0.025 &
+				&
+				0.021 &
+				0.025 &
+				0.021 &
+				&
+				0.039 &
+				0.042 &
+				0.039 \\ \cline{3-26} 
+				&
+				&
+				\textbf{5} &
+				0.016 &
+				0.020 &
+				0.016 &
+				&
+				0.014 &
+				0.037 &
+				0.014 &
+				&
+				0.007 &
+				0.021 &
+				0.007 &
+				&
+				0.007 &
+				0.012 &
+				0.007 &
+				&
+				0.009 &
+				0.027 &
+				0.009 &
+				&
+				0.024 &
+				0.027 &
+				0.024 \\ \cline{3-26} 
+				&
+				&
+				\textbf{7} &
+				0.015 &
+				0.022 &
+				0.015 &
+				&
+				0.005 &
+				0.019 &
+				0.004 &
+				&
+				0.010 &
+				0.049 &
+				0.010 &
+				&
+				0.006 &
+				0.017 &
+				0.006 &
+				&
+				0.007 &
+				0.017 &
+				0.007 &
+				&
+				0.017 &
+				0.043 &
+				0.017 \\ \hline
+			\end{tabular}%
+		}
+		\begin{tablenotes}[flushleft]
+			\small
+			\item 	Note. FST = fully-specified target; SST = semi-specified target.
+		\end{tablenotes}
+	\end{center}
+\end{table}
+
+%Combined
+The $RMSE_{loadingsC}$ results for unidimensional and multidimensional scales when the ARS factor was not retained are reported in Tables Table~\ref{tab:S1WithoutARSBala} - \ref{tab:S2WithoutARSMedium}. The $RMSE_{loadingsC}$ was often <.1 in all conditions and for both uninformed and informed rotation approaches, which suggests that ignoring (i.e., not extracting) the ARS factor did not strongly affect the recovery of factor loadings. Moreover, when comparing the rotation approaches in the conditions with multidimensional scales, FST and SST generally performed as well as or better than oblimin, and, again, the loadings were more accurately recovered when the EFA models were estimated using polychoric correlations. 
+
+\begin{table}[b!]
+	\caption{Main effects on MMAB for zero loadings in multidimensional balanced scales when the ARS factor is not extracted in function of the simulated conditions}	\label{tab:S2MMAB0withoutARS}	
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{ccccccccccccccccccc}
+			\hline
+			\multicolumn{1}{l}{} & \multicolumn{18}{c}{\textbf{Multidimensional balanced scales - MMAB without ARS factor}}                \\ \hline
+			\multicolumn{1}{l}{} & \multicolumn{6}{c}{\textbf{Small ARS}}        & \multicolumn{6}{c}{\textbf{Medium ARS}}       & \multicolumn{6}{c}{\textbf{Large ARS}}        \\ \hline
+			\multicolumn{1}{l}{} &
+			\multicolumn{3}{c}{\textbf{Pearson}} &
+			\multicolumn{3}{c}{\textbf{Polychoric}} &
+			\multicolumn{3}{c}{\textbf{Pearson}} &
+			\multicolumn{3}{c}{\textbf{Polychoric}} &
+			\multicolumn{3}{c}{\textbf{Pearson}} &
+			\multicolumn{3}{c}{\textbf{Polychoric}} \\ \hline
+			\multicolumn{1}{l}{} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} \\ \hline
+			\textbf{N = 250}     & 0.136 & 0.148 & 0.134 & 0.146 & 0.155 & 0.144 & 0.140 & 0.156 & 0.137 & 0.150 & 0.164 & 0.148 & 0.227 & 0.275 & 0.214 & 0.252 & 0.309 & 0.237 \\ \hline
+			\textbf{N = 500}     & 0.093 & 0.104 & 0.092 & 0.100 & 0.107 & 0.099 & 0.100 & 0.106 & 0.099 & 0.108 & 0.113 & 0.107 & 0.150 & 0.175 & 0.144 & 0.171 & 0.203 & 0.163 \\ \hline
+			\textbf{C = 3}       & 0.118 & 0.128 & 0.117 & 0.133 & 0.140 & 0.132 & 0.122 & 0.132 & 0.120 & 0.140 & 0.147 & 0.137 & 0.189 & 0.223 & 0.179 & 0.223 & 0.271 & 0.210 \\ \hline
+			\textbf{C = 5}       & 0.114 & 0.129 & 0.113 & 0.121 & 0.132 & 0.119 & 0.117 & 0.131 & 0.116 & 0.125 & 0.136 & 0.123 & 0.177 & 0.208 & 0.170 & 0.196 & 0.234 & 0.188 \\ \hline
+			\textbf{C = 7}       & 0.111 & 0.120 & 0.110 & 0.115 & 0.122 & 0.114 & 0.119 & 0.130 & 0.118 & 0.123 & 0.133 & 0.122 & 0.201 & 0.242 & 0.190 & 0.216 & 0.262 & 0.202 \\ \hline
+			\textbf{J = 12}      & 0.109 & 0.122 & 0.107 & 0.117 & 0.127 & 0.114 & 0.119 & 0.136 & 0.117 & 0.129 & 0.143 & 0.126 & 0.189 & 0.230 & 0.178 & 0.211 & 0.260 & 0.196 \\ \hline
+			\textbf{J = 24}      & 0.120 & 0.129 & 0.120 & 0.129 & 0.136 & 0.129 & 0.120 & 0.126 & 0.120 & 0.129 & 0.134 & 0.128 & 0.188 & 0.220 & 0.181 & 0.212 & 0.251 & 0.204 \\ \hline
+		\end{tabular}%
+	}
+	\begin{tablenotes}[flushleft]
+		\small
+		\item 	Note. FST = fully-specified target; SST = semi-specified target.
+	\end{tablenotes}
+\end{table}
+
+\begin{table}[]
+	\caption{Main effects on MMAB for zero loadings in multidimensional unbalanced scales when the ARS factor is not extracted in function of the simulated conditions}
+	\label{tab:S2MMAB_0withoutARS}		
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{ccccccccccccccccccc}
+			\hline
+			\multicolumn{1}{l}{} & \multicolumn{18}{c}{\textbf{Multidimensional unbalanced scales - MMAB without ARS factor}}   \\ \hline
+			\multicolumn{1}{l}{} & \multicolumn{6}{c}{\textbf{Small ARS}}        & \multicolumn{6}{c}{\textbf{Medium ARS}}       & \multicolumn{6}{c}{\textbf{Large ARS}}        \\ \hline
+			\multicolumn{1}{l}{} &
+			\multicolumn{3}{c}{\textbf{Pearson}} &
+			\multicolumn{3}{c}{\textbf{Polychoric}} &
+			\multicolumn{3}{c}{\textbf{Pearson}} &
+			\multicolumn{3}{c}{\textbf{Polychoric}} &
+			\multicolumn{3}{c}{\textbf{Pearson}} &
+			\multicolumn{3}{c}{\textbf{Polychoric}} \\ \hline
+			\multicolumn{1}{l}{} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} &
+			\textbf{Oblimin} &
+			\textbf{FST} &
+			\textbf{SST} \\ \hline
+			\textbf{N = 250}     & 0.131 & 0.143 & 0.130 & 0.141 & 0.149 & 0.139 & 0.134 & 0.154 & 0.132 & 0.143 & 0.156 & 0.141 & 0.132 & 0.170 & 0.129 & 0.142 & 0.156 & 0.139 \\ \hline
+			\textbf{N = 500}     & 0.091 & 0.103 & 0.091 & 0.098 & 0.105 & 0.098 & 0.092 & 0.115 & 0.091 & 0.099 & 0.112 & 0.098 & 0.094 & 0.138 & 0.093 & 0.101 & 0.123 & 0.100 \\ \hline
+			\textbf{C = 3}       & 0.114 & 0.128 & 0.113 & 0.129 & 0.136 & 0.128 & 0.115 & 0.137 & 0.114 & 0.131 & 0.142 & 0.130 & 0.119 & 0.176 & 0.117 & 0.135 & 0.150 & 0.133 \\ \hline
+			\textbf{C = 5}       & 0.111 & 0.122 & 0.110 & 0.118 & 0.125 & 0.117 & 0.113 & 0.142 & 0.111 & 0.118 & 0.137 & 0.117 & 0.109 & 0.140 & 0.108 & 0.115 & 0.128 & 0.114 \\ \hline
+			\textbf{C = 7}       & 0.108 & 0.119 & 0.107 & 0.111 & 0.120 & 0.111 & 0.111 & 0.124 & 0.110 & 0.113 & 0.124 & 0.112 & 0.111 & 0.147 & 0.109 & 0.114 & 0.140 & 0.112 \\ \hline
+			\textbf{J = 12}      & 0.106 & 0.119 & 0.104 & 0.114 & 0.123 & 0.113 & 0.109 & 0.131 & 0.108 & 0.117 & 0.131 & 0.115 & 0.111 & 0.153 & 0.109 & 0.119 & 0.137 & 0.117 \\ \hline
+			\textbf{J = 24}      & 0.116 & 0.127 & 0.116 & 0.125 & 0.131 & 0.124 & 0.116 & 0.138 & 0.116 & 0.124 & 0.138 & 0.124 & 0.115 & 0.156 & 0.114 & 0.123 & 0.141 & 0.122 \\ \hline
+		\end{tabular}%
+	}
+	\begin{tablenotes}[flushleft]
+		\small
+		\item 	Note. FST = fully-specified target; SST = semi-specified target.
+	\end{tablenotes}
+\end{table}
+
+The MMAB results for the zero loadings in balanced and unbalanced scales are displayed in Table \ref{tab:S2MMAB0withoutARS} and Table~\ref{tab:S2MMAB_0withoutARS}. %\footnote{The results for the non-zero loadings are displayed in Table \ref{tab:S2MMAB_no0withoutARS} and Table \ref{tab:S2MMAB_no0withoutARSunbal} in the Appendix.}. 
+ For all rotation approaches, the MMAB was $>$.2 when large ARS was simulated in balanced scales, which is larger than this commonly used cut-off for \textquotedblleft non-ignorable\textquotedblright \, cross-loadings \citep{stevens1992applied}. In contrast, ignoring ARS did not increase the MMAB in the conditions with unbalanced scales as indicated by the MMAB always $<$ .2. In fact, in comparison to Table~\ref{tab:S2MMAB_0withARS} (i.e., when extracting the ARS factor), MMAB is now smaller (when using oblimin and FST) or equally small (when using SST).
+
+\subparagraph{\textbf{3.2.3.2 Factor correlations}} \mbox{}\\
+
+\begin{table}[]
+	\begin{center}
+		\caption{Main effects on $RMSE_{FactorCorr}$ in function of the strength of the ARS and the simulated conditions when ARS is not extracted}
+		\label{tab:FACorr_SmallNOARSBalMADS2}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{ccccccccccccccccccc}
+				\hline
+				\multicolumn{1}{l}{} & \multicolumn{18}{c}{\textbf{$RMSE_{FactorCorr}$ without ARS factor}}                                                                         \\ \hline
+				\multicolumn{1}{l}{} & \multicolumn{6}{c}{\textbf{Small ARS}}        & \multicolumn{6}{c}{\textbf{Medium ARS}}       & \multicolumn{6}{c}{\textbf{Large ARS}}        \\ \hline
+				\multicolumn{1}{l}{} &
+				\multicolumn{3}{c}{\textbf{Pearson}} &
+				\multicolumn{3}{c}{\textbf{Polychoric}} &
+				\multicolumn{3}{c}{\textbf{Pearson}} &
+				\multicolumn{3}{c}{\textbf{Polychoric}} &
+				\multicolumn{3}{c}{\textbf{Pearson}} &
+				\multicolumn{3}{c}{\textbf{Polychoric}} \\ \hline
+				\multicolumn{1}{l}{} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} &
+				\textbf{Oblimin} &
+				\textbf{FST} &
+				\textbf{SST} \\ \hline
+				\textbf{N = 250}     & 0.026 & 0.020 & 0.007 & 0.026 & 0.009 & 0.008 & 0.053 & 0.025 & 0.029 & 0.053 & 0.022 & 0.029 & 0.137 & 0.095 & 0.096 & 0.138 & 0.145 & 0.096 \\ \hline
+				\textbf{N = 500}     & 0.035 & 0.017 & 0.016 & 0.035 & 0.008 & 0.017 & 0.052 & 0.017 & 0.019 & 0.053 & 0.014 & 0.021 & 0.116 & 0.035 & 0.050 & 0.121 & 0.070 & 0.046 \\ \hline
+				\textbf{C = 3}       & 0.030 & 0.024 & 0.015 & 0.030 & 0.008 & 0.016 & 0.045 & 0.027 & 0.019 & 0.045 & 0.017 & 0.020 & 0.132 & 0.052 & 0.089 & 0.134 & 0.116 & 0.089 \\ \hline
+				\textbf{C = 5}       & 0.031 & 0.021 & 0.016 & 0.031 & 0.010 & 0.017 & 0.071 & 0.023 & 0.036 & 0.070 & 0.026 & 0.037 & 0.108 & 0.064 & 0.044 & 0.113 & 0.105 & 0.040 \\ \hline
+				\textbf{C = 7}       & 0.031 & 0.010 & 0.004 & 0.031 & 0.008 & 0.005 & 0.042 & 0.012 & 0.018 & 0.043 & 0.012 & 0.019 & 0.138 & 0.079 & 0.086 & 0.141 & 0.101 & 0.083 \\ \hline
+				\textbf{Balanced}    & 0.006 & 0.020 & 0.004 & 0.005 & 0.007 & 0.004 & 0.006 & 0.019 & 0.004 & 0.005 & 0.015 & 0.005 & 0.022 & 0.078 & 0.008 & 0.024 & 0.072 & 0.009 \\ \hline
+				\textbf{Unbalanced}  & 0.056 & 0.017 & 0.020 & 0.056 & 0.010 & 0.021 & 0.100 & 0.022 & 0.044 & 0.101 & 0.022 & 0.045 & 0.230 & 0.051 & 0.138 & 0.235 & 0.142 & 0.133 \\ \hline
+				\textbf{J = 12}      & 0.036 & 0.017 & 0.010 & 0.035 & 0.008 & 0.011 & 0.052 & 0.027 & 0.021 & 0.053 & 0.021 & 0.023 & 0.127 & 0.064 & 0.044 & 0.130 & 0.100 & 0.041 \\ \hline
+				\textbf{J = 24}      & 0.026 & 0.020 & 0.014 & 0.026 & 0.009 & 0.014 & 0.053 & 0.014 & 0.027 & 0.053 & 0.016 & 0.027 & 0.126 & 0.065 & 0.102 & 0.128 & 0.114 & 0.101 \\ \hline
+			\end{tabular}%
+		}
+		\begin{tablenotes}[flushleft]
+			\small
+			\item 	Note. FST = fully-specified target; SST = semi-specified target.
+		\end{tablenotes}
+	\end{center}
+\end{table}
+
+
+
+The $RMSE_{FactorCorr}$ results for both balanced and unbalanced scales are displayed in Table \ref{tab:FACorr_SmallNOARSBalMADS2}. The recovery of the factor correlations was generally satisfactory. Specifically, $RMSE_{FactorCorr}$ $<$ .1 in most conditions, except for oblimin rotation in case of a large ARS, which for unbalanced scales resulted in a $RMSE_{FactorCorr}$ of .230 and .235 when using Pearson and polychoric correlations, respectively.
+
+
+
+
+%\subsubsection{Multidimensional scales}
+
+%\paragraph{Dimensionality assessment}
+
+
+%Table \ref{S2MODSELECTMAIN} displays the TPR results for the dimensionality assessment in multidimensional scales with small, medium and large ARS\footnote{The complete results, for all combinations of the manipulated factors, are displayed in Table \ref{tab:S2smallARSMod} to Table \ref{tab:S2largeARSMod} in the Appendix.}. The results mostly overlapped with those observed in the conditions with unidimensional scales, where the type of scale and strength of the ARS were the most impactful factors in choosing whether or not the additional ARS factor is retained. The ARS factor was almost never retained in the conditions with unbalanced scales as indicated by the close-to-zero TPRs. One possible explanation is that, by allowing cross-loadings among the factors, the additional ARS factor is easily absorbed by the content factors, and thus difficult to distinguish in the model selection step. For balanced scales, the additional ARS factor was mostly selected in the conditions with medium and large ARS, where both Pearson-based PA and CHull were equally sensitive or more sensitive than the BIC to this additional factor\footnote{Note that, for the CHull, we visually inspected the cases where a solution could not be selected because the hull contained only two points. This happened in around 25\% of the cases for the conditions with large ARS and balanced scales, and it was due to a slight decrease in the CAF index in the models with four factors in comparison to the three-factor models, which, thus, were not included in the hull. Visual inspection of these cases showed that the elbow was quite visible for the model with three factors, and thus we regarded these cases as having selected the correct number of factors.}. Similarly to the conditions with unidimensional scales, polychoric-based PA was less sensitive to the ARS factor compared to pearson-based PA in the conditions with a medium ARS. %Note that in the conditions with balanced scales and a large ARS both Pearson- and polychoric-based PA as well as CHull selected the additional ARS factor more than .95\% of the times.
+
+
+%For the small ARS scenario, the ARS factor is almost never selected in all conditions. In fact, the TPR for the considered model selection criteria was always close to 0 both for balanced and unbalanced scales. For the medium and large ARS  conditions, in line with what was observed in the first simulation study, the type of scale mostly affected the suggested number of factors to retain. In fact, the ARS factor was almost never selected in the conditions with unbalanced scales. 
+%For balanced scales, moreover, Pearson-based PA outperformed both the CHull approach and the BIC; however, if EFA was conducted using polychoric correlations, the CHull approach mostly outperformed the other approaches in the conditions with small sample size, while, in the conditions with large sample size, BIC generally outperformed both PA and the CHull approach. 
+%It is relevant to highlight that, in the conditions with balanced scales and large ARS, the additional ARS factor was selected more than .95\% of the times by CHull and PA. 
+
+
+
+\subsection{Conclusions}
+
+The simulation study assessed the performance of EFA with regard  to the number of suggested factors as well as the recovery of factor loadings and correlations in the presence of ARS both when retaining the ARS as an additional factor or not. The results indicated that, in terms of model selection, the type of scale as well as the strength of the ARS were particularly impactful on the suggested number of factors to retain. In fact, for both unidimensional and multidimensional scales, the additional ARS factor was almost never captured when unbalanced scales were simulated. %For unidimensional scales this is likely due to the difficulty in differentiating between a two-factor model with positive loadings from all items on both factors and unidimensional factor model with only positive loadings.
+In the conditions with balanced scales, the additional ARS factor was mostly selected when its strength was medium or large, especially by Pearson-based PA and to a lesser extent by the BIC and the CHull. Thus, in case of balanced scales, selecting an additional factor that may be an ARS factor is a realistic scenario one should be aware of.\\
+In terms of factor rotation, when the ARS factor was extracted in balanced scales, the choice of how to rotate is important. In fact, rotating to simple structure (i.e., oblimin) resulted in biased loadings, and the maximal bias on the zero loadings was particularly large. The latter results are relevant for empirical practice, where trying to pursue simple structure in balanced scales with an additional (but unacknowledged) ARS factor might lead to (i) the exclusion of items that seem to measure multiple factors (i.e., with cross-loadings), or (ii) under/overestimation how well the items measure a content factor (i.e., biased primary loading). In contrast, the factor loadings of balanced scales were accurately recovered when using informed rotation approaches (i.e., fully- and semi-specified target rotation), which shows that it pays off to be aware of the fact that an additional factor may be an ARS factor. %For unbalanced scales, when ARS was extracted as an additional factor in unidimensional scales especially fully-specified informed rotation approaches often failed to accurately recover the size of the loadings (i.e., $RMSE_{loadingC}$ $>$ .1) and, in multidimensional scales, only fully-specified target resulted in large cross-loadings  (i.e., MMAB $>$ .2). 
+\textcolor{black}{Taken together, these findings suggest that ARS is often extracted as an additional factor in balanced scales and that, for these scales, rotating toward (part of) the assumed MM (i.e., using informed rotation approaches) suffices to accurately assess the MM of these scales. Note that, for multidimensional scales, rotating toward a semi-specified target matrix, where only the zero loadings on the content factors were specified, allowed to recover the scales' MM as accurately as when rotating toward a fully-specified target matrix.} %Taken together, these findings suggests that ARS is often extracted as an additional factor in balanced scales and that, for these scales, using semi-specified target rotation toward the assumed MM suffices to accurately assess the MM of multidimensional scales. %regardless of their type (i.e., balanced or unbalanced).
+However, ignoring the ARS factor in multidimensional balanced scales generally resulted in large cross-loadings (irrespective of the rotation), whereas not extracting an additional ARS factor did not affect the factor loading recovery in unbalanced scales. Hence, in empirical practice, researchers should be aware of the fact that not retaining an additional ARS factor might lead to erroneous conclusions on the psychometric properties of the questionnaire items in a balanced scale.
+
+
+%Finally, not extracting an outspoken ARS factor in multidimensional balanced scales generally resulted in large cross-loadings (irrespective of the rotation). Hence, in empirical practice, researchers should be aware of the fact that not retaining an additional ARS factor in a balanced scale might lead to erroneous conclusions on the psychometric properties of the questionnaire items.
+
+
+
+
+
+
+%In terms of factor rotation, when the ARS factor was extracted the type of rotation strongly affected the loading recovery. That is, rotating to simple structure (i.e., oblimin) resulted in biased loadings, and the maximal bias on the zero loadings was particularly large. The latter results are relevant for empirical practice, where trying to pursue simple structure with an additional (but unacknowledged) ARS factor might lead to (i) exclude items that seem to measure multiple factors (i.e., with cross-loadings), or (ii) under/overestimate how well the items measure a content factor (i.e., biased primary loading). In contrast, factor loadings were accurately recovered when using informed rotation approaches (i.e., fully- and semi-specified target rotation), which shows that it pays off to be aware of the fact that an additional factor may be an ARS factor. 
+
+%Additionally, in multidimensional scales not extracting the ARS factor when its strength was large resulted in strongly biased zero loadings regardless of the type of rotation. This highlights that, in practice, researchers should be alerted of the risk of an ARS when selecting the number of factors to retain and that extracting the additional ARS factor and taking this into account when rotating (i.e., informed rotation approaches) can prevent 
+
+%Also, in the conditions with a large ARS, not extracting the additional ARS factor generally resulted in large cross-loadings (irrespective of the rotation in case of multidimensional scales). Hence, in empirical practice, researchers should be aware of the fact that not retaining an additional ARS factor might lead to erroneous conclusions on the psychometric properties of the questionnaire items. %Therefore, when ARS is suspected, we recommend researchers to extract this additional factor and take this into account when rotating by means of informed rotation approaches.
+
+%When the ARS factor was not extracted, and its strength was large, it resulted in heavily biased zero loadings regardless of the type of rotation. This highlights that, in practice, researchers should be alerted of the risk of an ARS when selecting the number of factors to retain. In fact, not retaining a strong ARS factor, either because not suggested in the model selection step or intentionally excluded, might lead to erroneously conclude that items measure multiple factor while this is purely due to ARS.
+
+%Additionally, in multidimensional scales, when a strong ARS factor was not extracted it resulted in heavily biased zero loadings (i.e., cross-loadings) regardless of the type of rotation.
+
+%scales not extracting a strong ARS factor resulted in heavily biased zero loadings regardless of the type of rotation. 
+
+%This highlights that, in practice, researchers should be alerted of the risk of an ARS when selecting the number of factors to retain. In fact, not retaining an ARS factor might lead to erroneously conclude that items measure multiple factor while this is purely due to ARS. Therefore, when ARS is suspected, we recommend researchers to extract it as an additional factor and take this into account when rotating (i.e., use informed rotation approaches).
+
+%Not extracting the ARS factor did have a considerable impact on the recovery of zero loadings when the strength of the ARS was large regardless of the type of rotation. Consequently, it is important to beware that failing to extract an ARS factor, either because not suggested in the model selection step or intentionally excluded, could result in items loading on multiple content factors.  
+
+
+%Ignoring (i.e., not extracting) the ARS factor did not have a considerable impact on the recovery of factor loadings nor on the factor correlations regardless of the type rotation. However, when the ARS factor was extracted, the type of rotation affected the loading recovery. That is, rotating to simple structure (i.e., oblimin) resulted in biased loadings, and the maximum size of this bias was particularly large on the zero loadings. \textcolor{blue}{The latter results are relevant for empirical practice, where applying simple structure rotation in presence of an additional (but unacknowledged) ARS factor might lead to (i) exclude an item because it measures multiple factors (i.e., cross-loadings), or (ii) to under/overestimate how well it measures a factor (i.e., biased loading)}. In contrast, factor loadings were accurately recovered when using informed rotation approaches (i.e., fully- and semi-specified target rotation). It is worth to note that the performance of fully-speciied target rotation was generally in line with that of semi-specified target rotation %\textcolor{blue}{Moreover, semi-specified target rotation can be particularly advantageous when extracting an additional factor such as in the case of ARS because it allows researchers to leave it undefined.} 
+%\textcolor{blue}{ but the latter can be particularly advantageous when extracting an additional factor such as in the case of ARS because it allows researchers to leave this additional factor unspecified.} 
+ %However, the degree of specification required in the target matrices (i.e., fully or semi-specified) to obtain an accurate recovery of factor loadings (i.e., $RMSE_{loadings}$ $<$ .1) when the ARS factor was retained differed depending on the dimensionality of the scales and whether they were balanced or not. 
+%That is, in the conditions with multidimensional unbalanced scales the factor loadings were more accurately recovered by semi-specified target rotation towards the content factors, while fully specified target rotation mostly resulted in distorted loadings.% It is worth to note that the latter rotation performed almost as well as fully specified target rotation in most conditions with multidimensional scales. %Finally, the factor correlations were always perfectly recovered by informed rotation approaches, while this was not the case when using uninformed rotation (i.e., oblimin). 
+
+\section{Discussion}
+
+
+Assessing the psychometric properties of self-report scales is essential to obtain valid measurements of individuals' latent psychological constructs (i.e., factors). This requires investigating the measurement model (MM) by determining the number of factors, their structure (i.e., which factor is measured by which item) and whether items are pure measurements of one factor. These psychometric properties are commonly assessed by exploratory factor analysis (EFA), where it is necessary to (i) evaluate the number of factors to retain, and (ii) solve rotational freedom to enhance the interpretability of these retained factors. By means of a simulation study, we showed that these two aspects are affected by an acquiescence response style (ARS) among the respondents, and that these effects on factor loadings and cross-loadings are more severe for balanced than for unbalanced scales. In what follows, we discuss the implications of these results for empirical practice for the two types of scales separately.
+
+For balanced scales, especially large ARS often resulted in selecting an additional factor. For these scales, when retained, it is crucial to realize that this additional factor may be an ARS factor and to take this into account in the rotation step. In fact, we showed that naively rotating towards simple structure (i.e., assuming that each item measures only one factor) resulted in biased loadings as well as \textquotedblleft non-ignorable\textquotedblright \, cross-loadings. The latter might drive researchers using balanced scales to draw erroneous conclusions when assessing whether items are non-ambiguous measures of a single factor, and whether they should be excluded from the scale (or replaced). This is avoided by using informed rotation approaches, where the additional ARS factor is taken into account by fully or partially specifying \textit{a priori} assumptions or expectations regarding the MM in a target rotation matrix, and specifying the additional factor as a factor with high loadings for all items or leaving it unspecified.  Furthermore, in multidimensional balanced scales, not extracting a large ARS factor often resulted in large cross-loadings, irrespective of the rotation. Thus, to properly assess the psychometric properties of a balanced scale, we not only recommend to use informed rotation if an additional factor is extracted but we even advise to extract the additional factor irrespective of whether the model selection criteria suggests to do so and compare this solution (upon informed rotation) to the one without this additional factor. Note that this result is also relevant to researchers that aim to use exploratory structural equation modeling (ESEM; \citealp{asparouhov2009exploratory}), where the number of factors is commonly assumed to be known \textit{a priori}, and one, thus, likely disregards the potential presence of an ARS factor.
+
+\label{refpage:R2Mj2b}\linelabel{refline:R2Mj2b}\textcolor{blue}{For unbalanced scales, the additional ARS factor was almost never selected in the model selection step. For unidimensional scales, our findings align with those analytically derived by \citet{ferrando2010acquiescence} in unidimensional scales, and extend them to multidimensional scales, where the cross-loadings between the factors allow for a lot of flexibility so that the additional ARS factor is easily \textquotedblleft absorbed\textquotedblright\, by the content ones, and thus hardly ever (or never) retained as an additional factor.} Furthermore, not extracting ARS as an additional factor did not impact the factor loadings and correlation much, and, thus, when evaluating these psychometric properties, researchers can simply ignore the potential factor. Nevertheless, one should not conclude that ignoring an additional ARS factor in unbalanced scales is completely harmless. It is important to bear in mind that ARS might influence individual estimates with regard to the measured factors (i.e., factor scores), which, however, were not part of our investigation.
+
+
+%That is, especially large ARS often resulted in selecting an additional factor when balanced scales were used. For balanced scales, when retained, it is crucial to realize that this additional factor may be an ARS factor and to take this into account in the rotation step. In fact, we showed that naively rotating towards simple structure (i.e., assuming that each item measures only one factor) resulted in biased loadings as well as \textquotedblleft non-ignorable\textquotedblright \, cross-loadings. The latter might drive researchers using balanced scales to draw erroneous conclusions when assessing whether items are non-ambiguous measures of a single factor, and whether they should be excluded from the scale (or replaced). This is avoided by using informed rotation approaches, where the additional ARS factor is taken into account by fully or partially specifying \textit{a priori} assumptions or expectations regarding the MM in a target rotation matrix, and specifying the additional factor as a factor with high loadings for all items or leaving it unspecified.  Furthermore, in multidimensional balanced scales, not extracting a large ARS factor often resulted in large cross-loadings, irrespective of the rotation. Thus, to properly assess the psychometric properties of a balanced scale, we not only recommend to use informed rotation if an additional factor is extracted but we even advise to extract the additional ARS factor irrespective of whether the model selection criteria suggests to do so. Note that this result is also relevant to researchers that aim to use exploratory structural equation modeling (ESEM; \citealp{asparouhov2009exploratory}), where the number of factors is commonly assumed to be known \textit{a priori}, and one, thus, likely disregards the potential presence of an ARS factor. For unbalanced scales, not extracting ARS as an additional factor did not impact the assessment of the scales' psychometric properties much and, thus, researchers can simply ignore this additional factor.
+
+
+
+% Additionally, ignoring ARS did not affect the assessment of unbalanced scales and, whereas, in multidimensional balanced scales, not extracting a large ARS factor often resulted in large cross-loadings, irrespective of the rotation. Thus, we strongly recommend researchers to not simply ignore ARS when using balanced scales because this will directly affect their conclusions when assessing the scale psychometric properties. This is particularly important not only for researchers interested in using EFA but also for those that aim to use exploratory structural equation modeling (ESEM; \citealp{asparouhov2009exploratory}). In fact, in ESEM the number of factors is commonly chosen \textit{a priori}, and one might likely disregards the presence of an ARS factor, which, in balanced scales, affects the recovery of the factor loadings.
+
+In summary, these findings indicate that it is crucial for researchers to beware of ARS and, for balanced scales, it is best to extract this as an additional factor and take its nature into account when rotating the factors. For the latter, our advise is to use semi-specified target rotation since it proved to perform well, and it avoids the potential influence of miss-specifying the size of the primary loadings - even though such an influence was not found in the current paper (\citealp{myers2013rotation}; \citealp{myers2015rotation}).  \label{refpage:R1Mj1a}\linelabel{refline:R1Mj1a}\textcolor{blue}{When researchers do not have assumptions regarding the MM, an optimal target for a given loading matrix can be determined using Simplimax \citep{kiers1994simplimax}.}
+
+%For unbalanced scales, extracting an additional ARS and taking it into account when rotating resulted in biased loadings only for scales with one content factor. Thus, in unbalanced scales, researchers can simply neglect ARS. However, in multidimensional balanced scales, not extracting a large ARS factor often resulted in large cross-loadings, irrespective of the rotation.
+
+%factor or not resulted, whereas, with one content factor, this generally resulted in biased loadings. 
+%Additionally, ignoring ARS did not affect the assessment of unbalanced scales, whereas, in multidimensional balanced scales, not extracting a large ARS factor often resulted in large cross-loadings, irrespective of the rotation.
+
+%For unbalanced scales, different results were observed. In fact, in scales with only one content factor, extracting the additional ARS factor resulted in biased loadings regardless of the type of rotation, whereas, with multidimensional unbalanced scales, specifying part of the MM was sufficient to recover both the MM structure and the size of the loadings. 
+
+%--CHECK THE DISCUSSION AND FINE-TUNE IT BETTER.
+
+%Not extracting a large ARS factor often resulted in large cross-loadings, irrespective of the rotation in case of multidimensional balanced scales. This last finding has important implications not only for researchers interested in using EFA but also for those that aim to use exploratory structural equation modeling (ESEM; \citealp{asparouhov2009exploratory}). In fact, in ESEM the number of factors is commonly chosen \textit{a priori}, and one might likely disregards the presence of an ARS factor, which, in balanced scales, affects the recovery of the factor loadings.
+
+%In summary, these findings indicate that it is crucial for researchers to beware of ARS and, when suspected in balanced scales, it is best to extract this as an additional factor and take its nature into account when rotating the factors. For the latter, our advise is to use semi-specified target rotation since it proved to perform well, and it avoids the potential influence of miss-specifying the size of the primary loadings - even though such an influence was not found in the current paper (\citealp{myers2013rotation}; \citealp{myers2015rotation}). 
+
+
+%In summary, these findings indicate that it is crucial for researchers to beware of ARS and, when suspected in balanced scales, it is best to extract this as an additional factor and take its nature into account when rotating the factors. For the latter, our advise is to use semi-specified target rotation since it proved to perform well, and it avoids the potential influence of miss-specifying the size of the primary loadings - even though such an influence was not found in the current paper (\citealp{myers2013rotation}; \citealp{myers2015rotation}). 
+
+
+
+%For these scales, when retained, it is crucial to realize that this additional factor may be an ARS factor and to take this into account in the rotation step. In fact, we showed that naively rotating towards simple structure (i.e., assuming that each item measures only one factor) resulted in biased loadings as well as \textquotedblleft non-ignorable\textquotedblright \, cross-loadings. The latter might drive researchers to draw erroneous conclusions when assessing whether items are non-ambiguous measures of a single factor, and whether they should be excluded from the scale (or replaced). This is avoided by using informed rotation approaches, where the additional ARS factor is taken into account by fully or partially specifying \textit{a priori} assumptions or expectations regarding the MM in a target rotation matrix, and specifying the additional factor as a factor with high loadings for all items or leaving it unspecified. Note that both fully- and semi-specified target rotation allowed to accurately recover the MM structure and the size of the loadings.
+
+
+
+%Assessing the psychometric properties of self-report scales is essential to obtain valid measurements of individuals' latent psychological constructs (i.e., factors). This requires investigating the measurement model (MM) by determining the number of factors, their structure (i.e., which factor is measured by which item) and whether items are pure measurements of one factor. These psychometric properties are commonly assessed by exploratory factor analysis (EFA), where it is necessary to (i) evaluate the number of factors to retain, and (ii) solve rotational freedom to enhance the interpretability of these retained factors. By means of a simulation study, we showed that these two aspects are affected by an acquiescence response style (ARS) among the responders. That is, especially large ARS often resulted in selecting an additional factor when balanced scales were used. For these scales, when retained, it is crucial to realize that this additional factor may be an ARS factor and to take this into account in the rotation step. In fact, we showed that naively rotating towards simple structure (i.e., assuming that each item measures only one factor) resulted in biased loadings as well as \textquotedblleft non-ignorable\textquotedblright \, cross-loadings. The latter might drive researchers to draw erroneous conclusions when assessing whether items are non-ambiguous measures of a single factor, and whether they should be excluded from the scale (or replaced). This is avoided by using informed rotation approaches, where the additional ARS factor is taken into account by fully or partially specifying \textit{a priori} assumptions or expectations regarding the MM in a target rotation matrix, and specifying the additional factor as a factor with high loadings for all items or leaving it unspecified. Note that both fully- and semi-specified target rotation allowed to accurately recover the MM structure and the size of the loadings. %Taken together, these findings indicate that, when researchers suspect that an additional extracted factor is due to ARS, informed rotation approaches should be preferred. 
+%Additionally, not extracting a large ARS factor often resulted in large cross-loadings, irrespective of the rotation in case of multidimensional scales. This last finding has important implications not only for researchers interested in using EFA but also for those that aim to use exploratory structural equation modeling (ESEM; \citealp{asparouhov2009exploratory}). In fact, in ESEM the number of factors is commonly chosen \textit{a priori}, and one might likely disregards the presence of an ARS factor, which, thus, affects the recovery of the factor loadings.
+
+%In summary, these findings indicate that it is crucial for researchers to beware of ARS and, when suspected, it is best to extract this as an additional factor and take its nature into account when rotating the factors. For the latter, our advise is to use semi-specified target rotation since it proved to perform well, and it avoids the potential influence of miss-specifying the size of the primary loadings - even though such an influence was not found in the current paper (\citealp{myers2013rotation}; \citealp{myers2015rotation}). 
+
+%This last finding has important implications for empirical practice, where cross-loadings, which are frequently encountered, may be eliminated by  a result of a disregarded ARS. In short, it is essential for researchers to beware of the risk of ARS and, when suspected, it is best to extract this as an additional factor and take this into consideration when rotating the retained factors. For the latter, our advise is to use semi-specified target rotation since it proved to perform well, and it minimizes the risk of miss-specifying (part) of the MM. 
+
+
+
+%Taken together, these findings indicate that it is essential that researchers pay close attention to the risk of ARS both when determining the number of factors to retain (i.e., extracting the additional ARS factor) and when rotating the retained factors. For the latter, we recommend researchers to use semi-specified target rotation since it proved to perform well, and it minimizes the risk of miss-specifying (part) of the MM. 
+
+
+%stresses the importance of paying close attention to the risk of an ARS when deciding on the number of factors to retain  
+
+
+
+
+
+
+%Specifically, we recommend researchers to use semi-specified target rotation since it proved to perform well, and it minimizes the risk of miss-specifying (part) of the MM. 
+
+%by leaving some elements unspecified in the target rotation matrix. %Equally important, not extracting the ARS factor did not impact the factor loadings, nor the factor correlations. These last findings are good news not only for researchers interested in using EFA but also for those that aim to use exploratory structural equation modeling (ESEM; \citealp{asparouhov2009exploratory}). In fact, in ESEM the number of factors is commonly chosen \textit{a priori} and one might disregard the presence of an ARS factor, which, based on our results, does not affect the factor loadings nor the factor correlations.
+%Equally important, \textquotedblleft non-ignorable\textquotedblright cross-loadings 
+%Equally important, not extracting an outspoken ARS factor did result in \textquotedblleft non-ignorable\textquotedblright cross-loadings regardless of the type of rotation (i.e., uninformed or informed). In practice, this means that researchers should pay close attention to the risk of an ARS when deciding on the number of factors to retain. In fact, intentionally ignoring such factor could directly affect their conclusions when evaluating whether items are pure measures of only one factor. This last finding is relevant not only for researchers interested in using EFA but also for those that aim to use exploratory structural equation modeling (ESEM; \citealp{asparouhov2009exploratory}). In fact, in ESEM the number of factors is commonly chosen \textit{a priori}, and one might disregard the presence of an ARS factor, which, based on our results, can affect the recovery of the factor loadings.
+%Equally important, not extracting an outspoken ARS factor did result in \textquotedblleft non-ignorable\textquotedblright\, cross-loadings regardless of the type of rotation (i.e., uninformed or informed). In practice, this means that researchers should pay close attention to the risk of an ARS when deciding on the number of factors to retain. In fact, intentionally not retaining a suggested additional factor could directly affect their conclusions when the additional factor captures an ARS. This last finding is relevant not only for researchers interested in using EFA but also for those that aim to use exploratory structural equation modeling (ESEM; \citealp{asparouhov2009exploratory}). In fact, in ESEM the number of factors is commonly chosen \textit{a priori}, and one might disregard the presence of an ARS factor, which, based on our results, can affect the recovery of the factor loadings. 
+%Taken together, these findings show that both balanced scales and informed rotation approaches offer a tool to overcome the detrimental effects of an ARS on EFA when assessing the psychometric properties of self-report scales. In fact, the former allows to more easily capture ARS as an additional factor, whereas the latter allows to recover MM structure and the size of the loadings.
+
+%not impact the recovery of the zerofactor loadings, nor the factor correlations. These last findings are good news not only for researchers interested in using EFA but also for those that aim to use exploratory structural equation modeling (ESEM; \citealp{asparouhov2009exploratory}). In fact, in ESEM the number of factors is commonly chosen \textit{a priori} and one might disregard the presence of an ARS factor, which, based on our results, does not affect the factor loadings nor the factor correlations.
+
+
+%By means of a simulation study we assessed the effect of an ARS on these two EFA steps (selecting the number of factors and rotating them) in unidimensional and multidimensional (balanced) scales both when the ARS factor is retained (i.e., extracted) or not. In terms of the number of factors, it was showed that the ARS was selected as an additional factor in balanced scales and when its strength was medium or large. Specifically, Pearson-based parallel analaysis (PA) was 
+%outperformed the other model selection techniques. When the additional ARS factor was selected, the type of rotatio 
+
+
+%the results showed that it is important to take the additional ARS factor into account when rotatings. In fact, rotating to simple structure (i.e., uninformed rotation approach) resulted in cross-loadings as well as unsatisfactory recovery of factor loadings. These issues were solved by using informed rotation approaches which allow to take into account the additional ARS factor by fully or partially specifying the MM structure. 
+
+
+
+%selecting the number of factors and rotating them. Exploratory factor analysis (EFA) is one of the most used methods to assess these psychometric properties in newly developed scales. Assessing the psychometric properties of self-report scales is a crucial step to ensure accurate measurements individuals on their underlying psychological constructs (i.e., factors). Exploratory factor analysis (EFA) is one of the most used methods to assess these psychometric properties in newly developed scales. In EFA it is crucial to (i) evaluate the number of factors (i.e., factors), and (ii) rotate the factors to make them interpretable.
+
+
+%However, the evaluation of these psychometric properties in self-report scales can be endangered by individual stylistic tendencies in answering the self-report questions. One well-known response style is the acquiescent/agreeing one (ARS), where individuals tend to agree with the questions regardless of their content. 
+
+%By means of a simulation study we evaluated the extent to which an ARS can affect EFA in assessing the psychometric properties of both unidimensional and multidimensional (balanced) scales in terms of (i) the suggested number of factors to retain (i.e. extracted), (ii) the recovery of factor loadings when the ARS factor is extracted or not and (iii) compared informed and uninformed rotation approaches on the recovery of content and ARS factors. 
+
+%The results indicate that an ARS is mostly selected in balanced scales and when its strength is medium or large. In those cases, it is important to take the additional ARS factor into account when rotating. In fact, rotating to simple structure (i.e., using informed rotation approaches) results in cross-loadings as well as unsatisfactory recovery of factor loadings. 
+
+
+While providing useful insights on the effects of ARS on EFA, the generalisability of these results is subject to certain limitations. For instance, in this study we only considered fully balanced or unbalanced scales but not semi-balanced scales. The latter are not uncommon in psychological research since, for some psychological constructs, contra-indicative items may be harder to formulate without facing the risk of measuring something else \citep{van2013response}. Moreover, \citet{de2020comparing} recently assessed the effects of ARS on both EFA and random intercept factor analysis (RIFA; \citealp{maydeu2006random}) with partially unbalanced scales, and showed that factor loadings were severely affected when using EFA (but not RIFA), especially when the size of the loadings differed strongly between indicative and contra-indicative items. However, whether the additional ARS factor was suggested in the model selection step was not investigated by them, and, in future research, it would certainly be interesting to investigate whether the ARS factor would be suggested in the model selection step. An additional limitation of our study is that the data were simulated under conditions where the MMs did not include cross-loadings among the content factors. However, this does not entirely correspond to empirical practice, where cross-loadings are frequently encountered \citep{li2020effects}. Cross-loadings can have an important impact, not only on the number of factors to retain in EFA \citep{li2020effects} but also on the performance of uninformed rotation approaches (\citealp{lorenzo1999promin}; \citealp{ferrando2000unrestricted}; \citealp{schmitt2011rotation}).\label{refpage:R1Mj2b}\linelabel{refline:R1Mj2b} \textcolor{blue}{Finally, we only used oblimin as uninformed rotation approach; however, future research is needed to investigate the performance of uninformed rotation approaches that are suitable for the identification of MMs that do not adhere to simple structure \citep{beauducel2020identification}.} 
+
+
+
+
+
+
+
+%Finally, this study was limited to data from a single group and, thus, did not investigate the effects of ARS on multiple group EFA \citep{de2019exploratory}. In future research, it would be interesting to explore the consequences of an ARS on testing for measurement invariance. In fact, while this study investigated the impact of ARS on factor loadings (i.e., when ARS is not extracted as an additional factor and/or disregarded in the rotation step), it remains unclear what the effect would be on intercepts \citep{cheung2000assessing}, or thresholds in case of ordered-categorical data, which should also be invariant to validly compare factor means across groups.
+
+
+
+%While providing useful insights on the effects of an ARS on EFA, the generalisability of these results is subject to certain limitations. For instance, one set of limitations pertains to the type of data that were simulated. In this study, only single group scenarios were investigated, whereas further research should be carried out to explore multiple-group cases. For example, it remains unclear to what extent an ARS would be captured as an additional factor or not when it mostly affects only one group. Additionally, here we only considered fully balanced or unbalanced scales but not semi-balanced scales. The latter are not uncommon in psychological research since, for some psychological constructs, contra-indicative items may be harder to formulate without facing the risk of measuring something else \citep{van2013response}. (-ADD semi-balanced paper de la Fuente (2020)).The data-generating MMs also limited the range of generalisability of our results. That is, the data were simulated under MMs without cross-loadings among the content factors. However, this might not be the case in common practice, where cross-loadings are frequently encountered, and they can have a strong impact on the number of factors to retain in EFA \citep{li2020effects}. If the debate is to be moved forward, a better understanding of the role that these aspects might play in combination with an ARS needs to be developed.
+
+%semi-balanced scales could also be of interest. Another limitation of this study refers to the absence of cross-loadings in the data generating model, which are commonly encountered when new scales are developed ---  extend on this
+
+
+
+% robustness of EFA to an ARS this study presents some limitations that is worth mentioning. The distribution of the ARS factor in the data-generating model differ from the assumed distribution in EFA. Furthermore, the strength of the ARS factor was not particularly large when taking into account the actual size of the loadings. Nevertheless, this strength is line with various studies that described the ARS as a weak factor. Investigating the extent to which a stronger ARS might affect the suggested number of factors as well as the loadings is interesting for future research. Moreover, it would be interesting to investigate if different response styles (DARS, MRS) affect EFA. 
+%Finally, the MM structure did not include cross-loadings or items that can be considered poor measurement of the factors. 
+
+
+\paragraph*{Open practices:}
+The data and the analysis scripts are freely available and have been posted at https://osf.io/bn63u/
+
+
+% EVALUATION OF PSYCHOMETRIC PROPERTIES 
+% EFA (MODEL SELECTION + ROTATION)
+% POTENTIAL RISKS FOR EFA WITH ARS
+% SUMMARY OF THE RESULTS
+% LIMITATIONS:
+% - STRENGTH OF THE RESPONSE STYLE
+% - ONLY ARS
+% - SINGLE GROUP
+% - NORMALITY OF DATA FOR PA
+% - MM STRUCTURE (PARTIALLY) KNOWN
+% - NO SEMI-BALANCED SCALES
+% - No comparison with confirmatory approaches
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\bibliography{bibliography-ARS-short}
+
+\end{linenumbers}
+\end{document}

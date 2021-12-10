@@ -1,0 +1,130 @@
+\documentclass[a4paper]{article}
+\usepackage{natbib}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{xr}
+%\usepackage{titlesec}
+\usepackage{footmisc}
+\usepackage{amssymb}
+\usepackage{lineno}
+\usepackage{float}
+\usepackage{longtable}
+%\usepackage[margin=1in]{geometry}
+%\usepackage[english,ngerman]{babel}
+%\usepackage[numbers]{natbib}
+%\usepackage{natbib}
+\usepackage{enumitem}
+\usepackage{xparse}
+\usepackage{tikz}
+\usepackage{blindtext}
+
+%line numbers
+\usepackage{lineno}
+
+%cross reference
+\usepackage{zref-xr}
+\zxrsetup{toltxlabel = true, tozreflabel = false}
+\zexternaldocument*{DUrso-ARS-revised}
+%\zexternaldocument{AppendixAPA.tex}
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+%\bibliographystyle{}
+%\setcitestyle{authoryear,open={((},close={))}}
+
+\begin{document}
+	
+%	\maketitle
+%	\begin{abstract}
+		
+%	\end{abstract}
+
+\section*{General response}
+	
+\subsection*{Reviewer One}	
+\textit{The effects of a factor representing an acquiescence response style (ARS) on results of exploratory factor analysis (EFA) are investigated by means of a simulation study. Based on their results the authors recommend that researchers should consider the potential presence of an ARS factor when assessing the psychometric properties of balances scales and use partial Procrustes rotation when they expect an ARS factor. The study addresses an issue that is relevant in the context of EFA based scale development.}	
+
+We appreciate the reviewer's positive comments.
+	
+\subsubsection*{Major comments}
+\textit{Although the aims of the study are relevant, conceptual and technical issues remain to be clarified before publication.}
+
+\paragraph{1} \textit{It is correct that naively rotating towards simple structure might be misleading when the population loadings can be more convincingly interpreted by means of a loading pattern with some items having more than one salient loading. In order to address this issue, Oblimin-rotation and (partial) target-rotation are directly compared in the simulation study as if the one rotation could simply be replaced by the other. However, the performance of partial target-rotation requires some knowledge on the loadings that have to be fixed to zero. This knowledge is not necessary when Oblimin-rotation or another uninformed rotation-method is performed. So, what should researchers do when they have no knowledge on the zero-loadings in order to perform partial target-rotation? Without any indication on how to proceed when the zero-loadings are unknown, the recommendation in favor of partial target rotation instead of Oblimin-rotation does not help.}
+
+We thank the reviewer for pointing out that our recommendations for empirical practice should be improved. We do agree that, when researchers do not have any assumptions regarding the measurement model, it may not be feasible to specify a target loading matrix. Therefore, in the Methods and Discussion sections, we indicated that, in these cases, researchers might obtain an optimal target rotation using Simplimax. Specifically, on page~\pageref{refpage:R1Mj1b} (line~\lineref{refline:R1Mj2b}) we added that \textquotedblleft Note that, for a given loading matrix, Simplimax (Kiers, 1994) may be used to obtain an optimal target, which is especially suited when researchers do not have prior expectations regarding the MM. \textquotedblright, and on page~\pageref{refpage:R1Mj1a} (line~\lineref{refline:R1Mj1a}) we indicated that \textquotedblleft When researchers do not have assumptions regarding the MM, an optimal target for a given loading matrix can be determined using Simplimax (Kiers, 1994).\textquotedblright
+
+\paragraph{2} \textit{Another conceptual problem is that only Oblimin-rotation is performed in order to represent the broad class of "uninformed" rotation-methods towards simple structure. It is, however, widely known that the large number of "uninformed" rotation methods may provide quite different results when the simple structure is not very pronounced. More specifically, the rotation methods do not equally well represent loading patterns that are based on more than one salient loading of each measured variable (e.g., Beauducel \& Kersting, 2020). It might be helpful to also consider rotation methods that are especially suitable for the identification of loading patterns with more than one salient loading per variable. This is also related to the rotation of rank-deficient loading matrices. The "unbalanced" loading matrices containing an additional ARS-factor are approximately rank-deficient (the rank is number of factors minus one), so that one should rotate one more factor than recommended by parallel analysis in order to get a rank-deficient loading matrix. The issue of the identification of the number of factors should be related to the approximate rank of a matrix. I would recommend to compare a large number of uninformed rotation-methods in a population simulation first, in order to find the uninformed rotation-method that recovers the intended loading pattern most convincingly. Than, the most convincing method should be used for the sample-based simulation study.}
+
+We thank the reviewer for this relevant comment, which allows us better to explain some of our choices concerning the analyses. In the paper, we chose oblimin because it is a commonly used rotation method available in most (if not all) statistical software. Geomin is also popular, but it often incurs in local minima (see Browne, 2001; Asparouhov
+\& Muthén, 2009). 
+In addition, choosing oblimin is also instrumental since our goal was not to compare uninformed rotation approaches that could deal with measurement models that do not adhere to simple structure but to demonstrate the risk that researchers face when assuming simple structure in the presence of an additional factor capturing ARS. Note that we partly discussed these aspects both in the example on page~\pageref{refpage:R1Mj2c} (line~\lineref{refline:R1Mj2c}) \textquotedblleft This result is not suprising, since previous research already established that, in the case of items loading on multiple factors (here due to the ARS factor), uninformed simple structure rotation criteria perform sub-optimally (Lorenzo-Seva, 1999, Ferrando \& Seva, 2000; Schmitt \& Sass, 2011)\textquotedblright and, more extensively, in the Conclusions. Nevertheless, we agree that it should be further clarified (i) why we chose oblimin, and (ii) alternative rotations may perform better when simple structure does not hold. Therefore, concerning (i), on page~\pageref{refpage:R1Mj2a} (line~\lineref{refline:R1Mj2a}) we indicated that \textquotedblleft For uninformed rotation, we chose oblimin since it is a popular rotation approach available in most statistical softwares$^{1}$, and it allowed us to assess the effect of naively rotating towards simple structure when extracting an additional factor (i.e., as one would do when unaware of ARS),\textquotedblright, where the footnote is \textquotedblleft We excluded Geomin (Yates, 1988) due to its sensitivity to local minima (Browne, 2001; Asparouhov
+\& Muthén, 2009)\textquotedblright.  Additionally, about (ii), on page~\pageref{refpage:R1Mj2a} (line~\lineref{refline:R1Mj2a}) we included that \textquotedblleft Finally, we only used oblimin as an uninformed rotation approach; however, future research may investigate the performance of uninformed rotation approaches that are suitable for the identification of MMs that do not adhere to simple structure (Beauducel \& Kersting, 2020).\textquotedblright.
+
+%In addition, choosing oblimin allowed us to demonstrate the risks that researchers face when using widely-used rotations that assume simple structure in the presence of an additional factor ARS factor. 
+\subsubsection*{Minor comments}
+
+\paragraph{1} \textit{P. 8/9 bottom: It is a good idea to provide a population example in order to clarify the aims of the simulation study. However, the software and the specification of the delta-parameter used for the Oblimin-rotation should be indicated. I have a major problem here because I could not replicate the Oblimin-solution presented in Table 1. Entering the correlation matrix implied by the target original loadings (given in Table 1) into IBM SPSS yields the following loading pattern (the SPSS code for this solution can be found at the bottom of the review):
+As you can see, the factors 1 and 2 are almost exactly the original loadings multiplied by -1 (reflection). As reflected loading columns only affect the polarity but not the meaning of a factor, the uninformed Oblimin-rotation resulted in a loading pattern that was at least as close to the original loading pattern as the target-rotation and the semi-target rotation. I suspect that a suboptimal rotation-algorithm was used by the authors. For example, when gradient projections are used without any iteration of the start-loading pattern, such suboptimal solutions (local optimum) might occur. If random start loading matrices were already used, try to enhance the number of random starts. Another possibility to get a distorted Oblimin-solution here is the use of delta values close to 0.7. However, as delta=0 is the default for Oblimin-rotation (recommended by Jennrich \& Sampson, 1966), there is no need for providing unusual delta-values in order to show that Oblimin does not work well.
+Moreover, the unreduced eigenvalues are 2.21, 2.21, 1.73, 0.65, 0.65, 0.65, etc. This indicates that a three-factor solution would be chosen by most researchers. So, the example does not provide a sufficient basis for a problem of uninformed rotation (which works perfectly here) or conventional dimensionality assessment (which would work perfectly here).
+However, although the Oblimin delta=0 rotation recovers the intended loading pattern, there are orthogonal (e.g., Varimax) and oblique rotations (e.g. Promax) that will not yield the intended loading pattern. For example, you find a Promax (Power=4) solution based on the SPSS-algorithm for the population loading example here: The comparison of the Oblimin- and Promax-solution implies that "uninformed" rotation methods leading to similar in conventional simple structure models may lead to dissimilar results when more complex loading patterns are investigated. It is therefore not clear which "uninformed" rotation-criterion combined with which rotation-algorithm might be optimal under the circumstances investigated in the present study. If a suboptimal uninformed rotation-method is used, this does not tell a lot on the possibilities of uninformed rotation under the conditions investigated here.}
+
+\paragraph{2} \textit{P. 13, line 309: 100 replications per condition are quite a few. Given the computational facilities that are now available, at least 500 replications per condition should be performed.}
+
+We fully understand the reviewer's concern. Our goal was not to scrutinize the interaction of all the manipulated factors of the simulation, which are reported in the Appendix for completeness. Therefore, we believe the total number of replications to be sufficient.
+
+
+\subsection*{Reviewer two}
+\textit{In general terms, the manuscript (ms.) is clear, correct (as far as I can tell) and the design is appropriate. Its main contribution is that it tries to assess the impact of acquiescent responding (AR) in some conditions that have received less attention so far (multidimensional solutions and graded responses with few response categories). I also believe that some of the obtained results are interesting.}
+
+We appreciate the reviewer's comments. 
+
+\subsubsection*{Major comments}
+
+\textit{At the same time, however, I believe that they are predictable to some extent and, also, that they have somewhat limited generalizability, because some of the choices seem rather arbitrary, and certain basic key decisions do not seem to have been considered very thoroughly. My main problem with the study (which is the source of the criticisms above), is the lack of a solid foundation or rationale: it seems to me more a pure simulation to see what happens than a well based study that makes solid predictions based on previous developments.}
+
+\textbf{Goodness-of-fit (GOF) assessment}
+\paragraph{1} \textit{Parsimony measures (such as AIC and BIC) and parallel analysis (PA, including PA-based further developments) are indeed useful tools for deciding which the most appropriate number of factors is. However, I concur with McDonald in that the main source of information for deciding the fit of any FA solution should be the magnitude of the residual correlations (covariances) after fitting this solution. So, in my view, an index of this type must be considered in the study.}
+
+We thank the reviewer for highlighting that it may be worth considering alternative fit measures. We fully understand this concern, and we do agree that a goodness-of-fit measure based on residual correlations is relevant when assessing EFA solutions, which is why we had already included the \textit{common part accounted for} (CAF) index (Lorenzo-Seva et al., 2011). As indicated on page~\pageref{refpage:R2Mj1a} (line~\lineref{refline:R2Mj1a})\textquotedblleft To calculate the CAF, first the Kaiser-Meyer-Olkin (KMO; Kaiser, 1970; Kaiser \& Rice, 1974) index is calculated on the estimated residual correlation matrix $\Psi_{q}$ of a factor model with $q$ factors. Then, the CAF for a model with $q$ factors is obtained as $CAF_{q}$ = 1-KMO($\Psi_{q}$). The values of the CAF index range from 0 to 1, where values close to 1 indicate that no substantial amount of common variance is left in the residual matrix after extracting $q$ factors.\textquotedblright. 
+
+
+
+\paragraph{2} \textit{Ferrando \& Lorenzo-Seva (2010, already referred in the ms.) used a simple centroid model to make predictions regarding the role of AR in the GOF results when based on residual covariances. As equations 10 to 14 of their paper shows, the detection of the Acquiescence (ACQ) factor mostly depends on the magnitude of its loadings and the degree of balance of the items. When there is no balance the ACQ loadings will be absorbed by the content loadings and the ACQ factor would tend to remain undetected, particularly when it is weakly defined. So, the (correct) interpretation on p. 18 is not a potential explanation but a generalization of a result which was previously derived analytically.}
+
+We thank the reviewer for pointing out that our results should be better connected to the existing literature, which we consider important. Thus, in the Results section on page~\pageref{refpage:R1Mj2a} (line~\lineref{refline:R1Mj2a}) we have included that \textquotedblleft These results align and generalize those that Ferrando and Lorenzo-Seva (2010) derived analytically based on the unrestricted FA model proposed by Ferrando et al. (2003), who indicated that, for unidimensional unbalanced scales, the fit of a unidimensional model (i.e., without the additional ARS factor) would generally be acceptable since the content factor loadings absorb the ARS factor loadings. Our results extend this to multidimensional unbalanced scales, where the cross-loadings on content factors absorb the additional ARS factor, which is then difficult to distinguish in the model selection step.\textquotedblright. In addition, in the Discussion, we report that \textquotedblleft For unbalanced scales, the additional ARS factor was seldom selected in the model selection step. For unidimensional scales, our findings align with those analytically derived by Ferrando and Lorenzo-Seva (2010) in unidimensional scales and generalize them to multidimensional scales, where the cross-loadings between the factors allow for much flexibility so that the additional ARS factor is easily \textquotedblleft absorbed\textquotedblright\, by the content ones, and thus hardly ever (or never) retained as an additional factor. \textquotedblright
+
+
+\textbf{Bias in factor loadings and factor correlations}
+\textit{The results here are again predictable to a certain extent based on previous developments. If the AR factor is not taken into account, the extracted factors will be weighted composites reflecting both AR and content, and so, the obtained loadings will be biased (generally upwardly) with respect to the 'true' content loadings.  More specifically, however, I have two problems in this part of the study that are related to certain choices the authors make.}
+
+\paragraph{3} \textit{A first basic point is whether acquiescence has to be modelled as independent from the content factors or not: this is a too important issue to be left ready in one sentence (lines 156-157). The classical view is that ACQ is independent from content (e.g. Frederiksen \& Messick, 1958), and this view is supported by evidence that, for most personality traits, the ACQ-content relations tend to be inexistent or very weak (e.g. McCrae \& Costa, 1983). The alternative view is that specific traits such as agreeableness, impulsivity, conscientiousness, conformity, dependency, sociability, external locus of control, or authoritarism, are theoretically related to acquiescence (see e.g. Ferrando, 2016 for a review). The reason why this point is so relevant lies in the identification of the EFA solution. When ACQ is modeled as orthogonal to content, and a balanced set of items is available, then the first centroid or principal axis factor (PAF) of the canonical solution will provide a close estimate of the ACQ factor, and the remaining factors would be 'clean' and reflect only content. However, if the orthogonal restriction is freed, then the first centroid or PAF would already reflect a mixture of content and ACQ (and this would occur before rotating). In other words, the condition of balance only works properly when ACQ is modeled as independent from content. This basic result will necessarily affect the ensuing results obtained when the canonical solution is obliquely rotated.}
+
+We agree that modeling acquiescence as independent from the content factors is an essential theoretical consideration, and we thank the reviewer for highlighting this aspect with this comment. For this reason, on page~\pageref{refpage:R2Mj3a} (line~\lineref{refline:R2Mj3a}) we added that \textquotedblleft In this paper, we focus on minimizing the variable complexity by means of oblique simple structure rotation (i.e., allowing the factors to become correlated) because there are little to no theoretical reasons to assume that the content factors are uncorrelated in case of multidimensional constructs and minimizing the variable complexity matches the idea of non-ambiguous items that are clear measurements of only one factor. Additionally, this rotation allows content factors and the ARS factor to be correlated, which, according to recent literature, is both theoretically and empirically acceptable for some personality traits (e.g., agreeableness, extraversion, impulsiveness; see Ferrando et al., 2016 and Weijters, Geuens, \& Schillewaert, 2010 for a review). However, we note that, in certain conditions, orthogonal rotations (i.e., assuming no correlation between content factors and an ARS factor) may be appropriate since the relation between some personality traits and acquiescence is irrelevant or absent (Messick \& Frederiksen,
+165 1958; McCrae \& Costa, 1983)$^{1}$\textquotedblright, and, as a footnote \textquotedblleft Note that, for unidimensional scales, Ferrando et al. (2016) developed a procedure to test the orthogonality assumption between a content factor and an ARS factor when a \textquotedblleft good\textquotedblright\, set of items measuring acquiescence is available.\textquotedblright 
+
+Additionally, we echo the reviewer's concern that freeing the orthogonal restriction may be problematic for the condition of balance for certain estimators. However, in our simulation study, we initially estimated the factor solutions using ML with orthogonal factors, and we only applied oblique transformations afterward. Thus, we first modeled the ARS factor independently from content and, only afterward, we rotated the solution. We noted that we did not report this in the first submitted manuscript, and thus we further specified this on  page page~\pageref{refpage:R2Mj3b} (line~\lineref{refline:R2Mj3b}), where we indicated that \textquotedblleft Note that the initial factor solutions were estimated with orthogonal factors and using maximum likelihood estimation\textquotedblright.
+
+
+
+\paragraph{4} \textit{In the case of analytical rotations, the choice of the rotation procedure might have an impact on the obtained results. Although the general aim is achieve simple structure, the specific criteria may vary among them. So, the procedure might try to maximize simplicity by rows, columns or both. Furthermore, some choices within the methods might try to achieve maximum pattern simplicity at the cost of obtaining highly correlated factors. None of these issues is taken into account in the study, and the choice of the oblimin criterion is not even justified.}
+
+We thank the reviewer for this comment, which aligns with a comment from reviewer one. We agree that the choice of oblimin must be justified, given the broad set of alternative uninformed rotation options currently available in most statistical softwares. A response to this comment, along with the implemented changes, can be found under the reviewer's one major comment \textbf{2}.
+
+\subsubsection*{Minor comments}
+
+\paragraph{1} \textit{The results that analytical rotations tend to produce method artifacts separating the upper and lower poles of the content factor (p. 9) is well documented in the literature. An appropriate reference would be DiStefano \& Molt, 2009.}
+
+
+We thank the reviewer for this comment and for pointing us at this reference, which we were unaware of. We now relate the observed result to this reference on page~page~\pageref{refpage:R2Mi1a} (line~\lineref{refline:R2Mi1a}), where we mentioned that \textquotedblleft Note that DiStefano \& Molt (2006; 2009) already noted that results from analytical rotations, such as oblimin, may be confounded by a method effect when responses differ due to item wording.\textquotedblright
+
+%\bibliography{bibliography-ARS-short}
+\end{document}
